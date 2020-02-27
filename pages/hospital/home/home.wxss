@@ -1,0 +1,38 @@
+.logo {
+	padding: 12rpx;
+}
+
+.up {
+	display: flex;
+
+	flex-direction: row;
+	/* justify-content: space-between; */
+}
+
+.left {
+	margin-left: 20rpx;
+	/* border: 1px solid red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.contact {
+	display: flex;
+	flex-direction: row;
+	/* border: 1px solid red; */
+	margin-top: 30rpx;
+	font-size: 15px;
+	/* justify-content: center; */
+	align-items: center;
+	margin-bottom: 20rpx;
+}
+
+.more-text {
+	border: 3px solid green;
+	/* margin: 25prx 25rpx 25rpx 25rpx; */
+	margin: 0 25rpx;
+	margin-bottom: 25rpx;
+	padding: 8rpx;
+	border-radius: 5px;
+}

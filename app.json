@@ -34,7 +34,20 @@
     "pages/about/test/filter",
     "pages/about/home/home",
     "pages/plugin/drawer/drawer",
-    "pages/plugin/verticalnav/verticalnav"
+    "pages/plugin/verticalnav/verticalnav",
+    
+	"pages/ask/home/home",
+	"pages/ask/chooseDepartment/chooseDepartment",
+	"pages/ask/chooseDoctor/chooseDoctor",
+	"pages/ask/chooseDate/chooseDate",
+	"pages/ask/confirmRegister/confirmRegister",
+	"pages/ask/registerResult/registerResult",
+	"pages/ask/chooseTestProject/chooseTestProject",
+	"pages/ask/testMore/testMore",
+	
+	"pages/hospital/home/home",
+	"pages/notice/home/home",
+	"pages/my/home/home"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

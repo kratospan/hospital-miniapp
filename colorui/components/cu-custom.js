@@ -19,6 +19,10 @@ Component({
       type: [Boolean, String],
       default: false
     },
+	isHome : {
+		type: [Boolean, String],
+		default: false
+	},
     isBack: {
       type: [Boolean, String],
       default: false

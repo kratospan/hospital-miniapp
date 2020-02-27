@@ -1,0 +1,65 @@
+<scroll-view scroll-y class="scrollPage">
+  
+  <cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/cjkz2329.jpg">
+    <view slot="content">
+      <image src="/images/cjkz.png" mode="widthFix"></image>
+    </view>
+  </cu-custom>
+  
+  <view class="cu-card case {{isCard?'no-card':''}} margin-top">
+    <view class="cu-item shadow "> 
+      <view class="information">
+		  <view class="avatar" >
+		  		  <open-data  type="userAvatarUrl"></open-data>
+		  </view>
+		  <view class="left">
+		  		  <view class="nick_name text-lg">
+		  			  昵称:<open-data type="userNickName"></open-data>
+		  		  </view>
+		  		  <view class="id">欢迎使用大象医疗自助就诊系统</view>
+		  </view>
+	  </view>
+    </view>
+  </view>
+  
+  <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">就诊人管理</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+        <image src="/images/logo.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">挂号记录</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">体检记录</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">联系客服</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">Bug反馈</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">关于大象健康</text>
+      </navigator>
+    </view>
+  </view>
+  
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

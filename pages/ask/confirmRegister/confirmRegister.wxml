@@ -1,0 +1,105 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">确认预约</view>
+</cu-custom>
+
+<form>
+	
+	<!-- <view class="cu-form-group">
+		<view class="title">收货地址</view>
+		<input placeholder="统一标题的宽度"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">收货地址</view>
+		<input placeholder="输入框带个图标"></input>
+		<text class="cuIcon-locationfill text-orange"></text>
+	</view> -->
+<!-- 	<view class="cu-form-group">
+		<view class="title">验证码</view>
+		<input placeholder="输入框带个按钮"></input>
+		<button class="cu-btn bg-green shadow">验证码</button>
+	</view> -->
+	
+	<!-- <view class="cu-form-group">
+		<view class="title">手机号码</view>
+		<input placeholder="输入框带标签"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view> -->
+	<view class="information bg-white padding">
+		<view class="item">2020-02-08 (周五) 09:00-10:00</view>
+		<view class="item2 ">佛山市第一人民医院</view>
+		<view class="item2 ">陈荣恒[体表肿瘤外科专家] <text class="text-grey text-xs">其他·整形美容二科</text></view>
+	</view>
+	
+	<view class="cu-form-group bor" style="border-top: 1rpx solid #eee;">
+		<view class="title">费用</view>
+			<view class="picker">
+				￥25.00
+			</view>
+	</view>
+	
+	<view class="cu-form-group margin-top">
+		<view class="title">就诊人</view>
+		<view bindtap="showModal" value="{{index}}" data-target="bottomModal">
+			<view class="picker index?'':'text-grey'">
+				{{index?index:'就诊人选择   >'}}
+			</view>
+		</view>
+	</view>
+	
+	<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+	  <view class="cu-dialog text-lg">
+	    <view class="bg-white padding text-xl bar">
+			<view class="title2" style="">请选择就诊人</view>
+			<view class="cancel2" bindtap="hideModal">X</view>
+	    </view>
+	    <view class="bg-white padding solid-top" wx:for="{{list}}" bindtap="choosePatient" data-target="{{item}}">
+			{{item.name}}
+	    </view>
+		<view class="margin-top bg-white padding">
+			+新建就诊人
+		</view>
+	  </view>
+	</view>
+	
+<!-- 	<view class="cu-bar bg-white margin-top">
+	  <view class="action">
+	    <text class="cuIcon-title text-orange "></text> 底部窗口
+	  </view>
+	  <view class="action">
+	    <button class="cu-btn bg-green shadow" bindtap="showModal" data-target="bottomModal">Bottom</button>
+	  </view>
+	</view> -->
+	
+	
+	<view class="cu-form-group">
+		<view class="title">支付方式</view>
+			<view class="picker">
+				医院现场支付
+			</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">支付类型</view>
+			<view class="picker">
+				自付
+			</view>
+	</view>
+	
+	<view class="tips padding">
+		<view class="bg-olive light padding text-black">
+			<view class="title text-black" style="font-weight: 600;">重要提示:</view>
+			<view class="content text-black text-sm">1、根据医院规定，就诊当天可能无法取消预约。建议不要在就诊当天取消预约，如需取消请至少提前一天。</view>
+		</view>
+	</view>
+	
+	<view class="button padding">
+		<view class="bg-green padding text-white text-lg confirm ">确认预约</view>
+	</view>
+</form>

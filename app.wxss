@@ -1,6 +1,11 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
 
+.line{
+	height: 10rpx;
+	/* background: Gray; */
+}
+
 .scrollPage {
   height: 100vh;
 }
@@ -10,6 +15,7 @@
   flex-wrap: wrap;
   padding: 0px 40rpx 0px;
   justify-content: space-between;
+  /* border: 1px solid red; */
 }
 
 .nav-li {

@@ -1,0 +1,44 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">挂号预约</view>
+</cu-custom>
+
+<view class="hospital bg-white flex padding-sm">
+	<view class="logo"></view>
+	<view class="left margin-left flex">
+		<view class="text-lg title">佛山市第一人民医院</view>
+		<view>三甲</view>
+	</view>
+</view>
+
+<view class="rule bg-white padding-sm sm-border">
+	预约规则 <text class="text-grey text-sm">(本次预约挂号服务由大象健康提供)</text>
+</view>
+
+<view class="VerticalBox">
+  <!-- 左边的选择框 -->
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+  
+  <!-- 右边的提示框 -->
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh)" scroll-into-view="main-{{MainCur}}" >
+    <view class="padding-top padding-lr"  wx:key id="main-{{index}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-green'></text> {{title}} </view>
+		</view>
+      <view class="cu-list menu">
+        <view class="cu-item" wx:for="{{list2}}">
+          <view class="content" style="width: 400rpx;">
+            <view>
+              <text class="text-cut">瓦罗兰大陆-睡衣守阿斯顿撒打得撒大声地啊护者-新手保护营</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

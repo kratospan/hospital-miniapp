@@ -1,0 +1,32 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">体检套餐列表</view>
+</cu-custom>
+
+
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='cuIcon-titles text-green '></text> 体检套餐列表
+  </view>
+</view>
+<view class="cu-card dynamic no-card">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar comment solids-top">
+      <view class="cu-item solid-bottom" wx:for="{{projectList}}" wx:key>
+        <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+        <view class="content">
+          <view class="text-grey text-lg">{{item.name}}</view>
+		  <view class="tag-list" style="margin: 5rpx;">
+			<view class="cu-tag bg-green light" wx:for="{{item.tag}}" wx:key>{{item}}</view>
+		  </view>
+          <view class="text-gray" style="margin: 5rpx;">
+			1、体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，
+          </view>
+          <view class=" flex justify-between">
+            <view class="text-df text-green">￥{{item.payment}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

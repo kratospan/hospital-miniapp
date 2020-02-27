@@ -1,0 +1,35 @@
+.logo{
+	display: flex;
+	justify-content: center;
+	padding-top: 80rpx;
+}
+
+.registerResult{
+	padding-top: 20rpx;
+	text-align: center;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.other-tips {
+	text-align: center;
+	font-weight: 600;
+}
+
+.item {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	/* border: 1px solid red; */
+	padding: 15rpx;
+	margin-left: 80rpx;
+	font-weight: 600;
+}
+
+.content {
+	margin-left: 30rpx;
+}
+
+.to-more {
+	text-align: center;
+}

@@ -1,0 +1,26 @@
+.information {
+	display: flex;
+	flex-direction: row;
+	padding: 20rpx;
+}
+
+.avatar {
+	overflow:hidden; 
+	width: 160rpx;  
+	height: 160rpx;  
+	border-radius: 50%;  
+	border: 2px solid #fff; 
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.left {
+	margin-left: 20rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	font-size: 21px;
+}
+
+.id {
+	font-size: 13px;
+}

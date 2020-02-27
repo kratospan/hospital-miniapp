@@ -37,8 +37,12 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
-			"current": 27,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
@@ -239,6 +243,48 @@
 					"name": "4.3 --- filter：blur引起的ios花屏测试",
 					"pathName": "pages/about/test/filter",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择部门",
+					"pathName": "pages/ask/chooseDepartment/chooseDepartment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择医生",
+					"pathName": "pages/ask/chooseDoctor/chooseDoctor",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "确认预约 ",
+					"pathName": "pages/ask/confirmRegister/confirmRegister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 36,
+					"name": "预约结果",
+					"pathName": "pages/ask/registerResult/registerResult",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择体检套餐",
+					"pathName": "pages/ask/chooseTestProject/chooseTestProject",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "套餐详情",
+					"pathName": "pages/ask/testMore/testMore",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
