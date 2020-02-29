@@ -7,37 +7,52 @@ Page({
     TabCur: 0,
     MainCur: 0,
     VerticalNavTop: 0,
-    list: [],
-	list2 : [0,2,1,231,312,3123,123,123,123,123,123,123,123],
+    list: [{
+		id : 1,
+		name : '内科',
+	},{
+		id : 122,
+		name : '内科2',
+	},{
+		id : 13,
+		name : '内科3',
+	},{
+		id : 14,
+		name : '内科4',
+	},{
+		id : 15,
+		name : '内科5',
+	},{
+		id : 16,
+		name : '内科6',
+	},{
+		id : 17,
+		name : '内科7',
+	},{
+		id : 18,
+		name : '内科8'
+	},{
+		id : 19,
+		name : '内科9',
+	}],
+	list2 : [2,2,1,231,312,3123,123,123,123,123,123,123,123],
     load: true,
 	title : '',
   },
   onLoad() {
-    wx.showLoading({
-      title: '加载中...',
-      mask: true
-    });
-    let list = [{}];
-    for (let i = 0; i < 26; i++) {
-      list[i] = {};
-      list[i].name = String.fromCharCode(65 + i);
-      list[i].id = i;
-    }
-    this.setData({
-      list: list,
-      listCur: list[0]
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    //   mask: true
+    // });
   },
   onReady() {
-    wx.hideLoading()
+    // wx.hideLoading()
   },
   tabSelect(e) {
     this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      // MainCur: e.currentTarget.dataset.id,
-      // VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
+      TabCur: e.currentTarget.dataset.target.name,
     })
-	var get = e.currentTarget.dataset.id;
+	var get = e.currentTarget.dataset.target.id;
 	var list = []
 	for(let i = 0;i < get;i++){
 		list[i] = get;
@@ -48,37 +63,10 @@ Page({
 	this.setData({
 		title : get
 	})
-	// console.log(list)
   },
-  VerticalMain(e) {
-    let that = this;
-    let list = this.data.list;
-    let tabHeight = 0;
-    if (this.data.load) {
-      for (let i = 0; i < list.length; i++) {
-        let view = wx.createSelectorQuery().select("#main-" + list[i].id);
-        view.fields({
-          size: true
-        }, data => {
-          list[i].top = tabHeight;
-          tabHeight = tabHeight + data.height;
-          list[i].bottom = tabHeight;     
-        }).exec();
-      }
-      that.setData({
-        load: false,
-        list: list
-      })
-    }
-    let scrollTop = e.detail.scrollTop + 20;
-    for (let i = 0; i < list.length; i++) {
-      if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
-        that.setData({
-          VerticalNavTop: (list[i].id - 1) * 50,
-          TabCur: list[i].id
-        })
-        return false
-      }
-    }
+  tabDepartment(){
+	  wx.navigateTo({
+		  url : "/pages/ask/chooseDoctor/chooseDoctor"
+	  })
   }
 })

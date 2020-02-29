@@ -1,0 +1,21 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">体检列表</view>
+</cu-custom>
+
+<view class="choose padding bg-white">
+	<text class="text-lg" style="font-weight: 600;">潘伟健</text>
+	<text class="cu-tag text-green" bindtap="showModal" value="{{index}}" data-target="bottomModal">切换就诊人</text>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+	<view class="cu-dialog text-lg">
+	    <view class="bg-white padding text-xl bar">
+			<view class="title2" style="">请选择就诊人</view>
+			<view class="cancel2" bindtap="hideModal">X</view>
+	    </view>
+	    <view class="bg-white padding solid-top" wx:for="{{patient_list}}" bindtap="choosePatient" data-target="{{item}}">
+			{{item.name}}
+	    </view>
+	</view>
+</view>

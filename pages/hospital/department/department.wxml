@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">科室介绍</view>
+</cu-custom>
+
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action text-sl">
+    <text class="cuIcon-title text-blue"></text>{{information.name}}
+  </view>
+</view>
+
+<view class="text-grey padding bg-white">科室地址:{{information.name}}</view>
+<view class="text-grey padding bg-white">科室电话:{{information.phone}}</view>
+<view class="padding text-grey text-lg bg-white">{{information.introduction}}</view>

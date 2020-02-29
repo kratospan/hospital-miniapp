@@ -24,28 +24,28 @@
   
   <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+      <view class="content" bindtap="toPatient">
         <text class="cuIcon-github text-grey"></text>
         <text class="text-grey">就诊人管理</text>
       </view>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+      <navigator class="content" url="/pages/my/registerList/registerList" hover-class="none">
         <image src="/images/logo.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">挂号记录</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <navigator class="content" url="/pages/my/testList/testList" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
         <text class="text-grey">体检记录</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <view class="content" bindtap="showQrcode">
+      <button class="content text-left" open-type='contact'>
         <text class="cuIcon-appreciatefill text-red"></text>
-        <text class="text-grey">联系客服</text>
-      </view>
+        <text class="text-grey" >联系客服</text>
+      </button>
     </view>
     <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback">
@@ -54,7 +54,7 @@
       </button>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+      <navigator class="content" url="/pages/my/about/about" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">关于大象健康</text>
       </navigator>

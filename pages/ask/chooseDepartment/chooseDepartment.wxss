@@ -44,7 +44,7 @@
 }
 
 .logo {
-		border: 1px solid red;
+		/* border: 1px solid red; */
 		width: 80rpx;
 		height: 80rpx;
 		border-radius: 25px;
@@ -55,6 +55,7 @@
 	font-weight: 700;
 }
 
-.rule {
-	border-bottom
-}
+/* .rule {
+	border-bottom;
+} */
+

@@ -3,8 +3,8 @@
 	<view slot="content">预约结果</view>
 </cu-custom> -->
 
-<cu-custom bgColor="bg-gradual-pink" isHome="{{true}}">
-	<view slot="content">操作条</view>
+<cu-custom bgColor="bg-gradual-blue" isHome="{{true}}">
+	<view slot="content">预约结果</view>
 </cu-custom>
 
 <scroll-view scroll-y class="scrollPage" style="background-color: white;">
@@ -33,7 +33,7 @@
 			<view class="content">临床营养中心</view>
 		</view>
 		
-		<view class="text-sm to-more margin">
+		<view class="text-sm to-more margin" bindtap="toRigisterMore">
 			查看订单详情 <text class="">></text>
 		</view>
 

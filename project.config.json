@@ -285,6 +285,61 @@
 					"pathName": "pages/ask/testMore/testMore",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "科室介绍",
+					"pathName": "pages/hospital/department/department",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "医生列表",
+					"pathName": "pages/hospital/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "医生介绍",
+					"pathName": "pages/hospital/doctor/doctor",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "挂号列表",
+					"pathName": "pages/my/registerList/registerList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "就诊人列表",
+					"pathName": "pages/my/patient/patient",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加就诊人",
+					"pathName": "pages/my/addPatient/addPatient",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑就诊人",
+					"pathName": "pages/my/editPatient/editPatient",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "体检列表",
+					"pathName": "pages/my/testList/testList",
+					"scene": null
 				}
 			]
 		}

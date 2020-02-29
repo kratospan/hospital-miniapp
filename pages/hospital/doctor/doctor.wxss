@@ -1,0 +1,18 @@
+.logo {
+	padding: 12rpx;
+}
+
+.up {
+	display: flex;
+
+	flex-direction: row;
+	/* justify-content: space-between; */
+}
+
+.right {
+	margin-left: 20rpx;
+	/* border: 1px solid red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}

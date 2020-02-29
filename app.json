@@ -46,8 +46,21 @@
 	"pages/ask/testMore/testMore",
 	
 	"pages/hospital/home/home",
+	"pages/hospital/department/department",
+	"pages/hospital/doctor/doctor",
+	"pages/hospital/list/list",
+	
 	"pages/notice/home/home",
-	"pages/my/home/home"
+	
+	"pages/my/home/home",
+	"pages/my/registerList/registerList",
+	"pages/my/registerMore/registerMore",
+	"pages/my/patient/patient",
+	"pages/my/addPatient/addPatient",
+	"pages/my/editPatient/editPatient",
+	"pages/my/about/about",
+	"pages/my/testList/testList",
+	"pages/my/testMore/testMore"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

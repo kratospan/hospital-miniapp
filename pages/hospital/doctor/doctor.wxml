@@ -1,0 +1,37 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">医生介绍</view>
+</cu-custom>
+
+	  <view class="up bg-white padding">
+		  <view class="logo">
+			  <view class="cu-avatar xl round margin-left " style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg);"></view>
+		  </view>
+		  <view class="right">
+			  <view class="text-lg" style="font-weight: 600;">{{information.name}}</view>
+			  <view class="">{{information.department}}</view>
+			  <view class="">{{information.title}}</view>
+		  </view>
+	  </view>
+	  
+<view class="cu-bar bg-white">
+  <view class="action text-sl">
+    <text class="cuIcon-title text-green"></text>擅长
+  </view>
+</view>
+
+<view class="padding-left padding-right padding-bottom bg-white">
+	{{information.good}}
+</view>
+
+<view class="cu-bar bg-white">
+  <view class="action text-sl">
+    <text class="cuIcon-title text-green"></text>详细介绍
+  </view>
+</view>
+
+<view class="padding-left padding-right padding-bottom bg-white">
+	{{information.introduciton}}
+</view>
+
+<view class="padding padding text-center text-grey text-sm">大象医疗</view>

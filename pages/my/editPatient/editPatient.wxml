@@ -1,0 +1,61 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">编辑就诊人</view>
+</cu-custom>
+
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">姓名</view>
+		<view>潘伟健</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">身份证</view>
+		<view>440921199806182135</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">性别</view>
+		<view>男</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">出生日期</view>
+		<view>1997-11-11</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">手机号码</view>
+		<input placeholder="输入框带标签"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">验证码</view>
+		<input placeholder="输入框带个按钮"></input>
+		<button class="cu-btn bg-green shadow">验证码</button>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">与就诊人的关系</view>
+		<picker bindchange="PickerChange" value="{{relation}}" range="{{relationPicker}}">
+			<view class="picker">
+				{{relation?relation:'请选择与就诊人的关系'}}
+			</view>
+		</picker>
+	</view>
+</form>
+
+<view class="tips padding text-grey">
+	<view>重要提示:</view>
+	<view>1、证件，性别，出生日期等信息可能会影响到您的诊断结果和治疗方案，请如实填写，不可修改</view>
+</view>
+
+<view class="button margin padding bg-green text-white text-lg text-center" bindtap="editPatient">
+	确认修改
+</view>
+
+<view class="button margin padding bg-red text-white text-lg text-center" bindtap="deletePatient">
+	删除
+</view>

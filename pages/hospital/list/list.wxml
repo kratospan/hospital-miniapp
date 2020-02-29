@@ -1,0 +1,20 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">医生列表</view>
+</cu-custom>
+
+<view class="text-center text-lg bg-white">{{department}}共有{{num}}名医生</view>
+
+<view class="cu-list menu-avatar margin-top">
+    <view class="cu-item" wx:for="{{doctor}}">
+      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+      <view class="content">
+        <view class="text-pink">
+          <text class="text-cut">{{item.name}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">{{item.good}}</text>
+        </view>
+      </view>
+    </view>
+  </view>

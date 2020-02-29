@@ -1,0 +1,24 @@
+.choose {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.cancel2 {
+	/* margin-left: 100rpx; */
+	position: absolute;
+	margin-left: 320rpx;
+}
+
+.title2 {
+	font-weight: 600;
+	/* border: 1px solid red; */
+	text-align: center;
+}
+
+.bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}

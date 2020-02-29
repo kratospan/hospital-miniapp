@@ -4,7 +4,7 @@
 </cu-custom>
 
 <view class="hospital bg-white flex padding-sm">
-	<view class="logo"></view>
+	<image src='/images/BasicsBg.jpg'  class='logo'></image>
 	<view class="left margin-left flex">
 		<view class="text-lg title">佛山市第一人民医院</view>
 		<view>三甲</view>
@@ -18,7 +18,7 @@
 <view class="VerticalBox">
   <!-- 左边的选择框 -->
   <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh)">
-    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    <view class="cu-item {{item.name==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-target="{{item}}">
       {{item.name}}
     </view>
   </scroll-view>
@@ -31,7 +31,7 @@
           <text class='cuIcon-title text-green'></text> {{title}} </view>
 		</view>
       <view class="cu-list menu">
-        <view class="cu-item" wx:for="{{list2}}">
+        <view class="cu-item" wx:for="{{list2}}" bindtap="tabDepartment">
           <view class="content" style="width: 400rpx;">
             <view>
               <text class="text-cut">瓦罗兰大陆-睡衣守阿斯顿撒打得撒大声地啊护者-新手保护营</text>

@@ -1,5 +1,5 @@
 <scroll-view scroll-y class="scrollPage" style="background-color: white;">
-  <image src='/images/componentBg.png' mode='widthFix' class='response'></image>
+  <image src='/images/bg2.png' mode='widthFix' class='response'></image>
   
   <view class="information">
 	  <view class="up">

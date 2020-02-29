@@ -3,7 +3,7 @@
 
 .line{
 	height: 10rpx;
-	/* background: Gray; */
+	/* background: #8799a3; */
 }
 
 .scrollPage {

@@ -1,0 +1,18 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">就诊人列表</view>
+</cu-custom>
+
+<view class="cu-list">
+	<view  data-target="{{item}}" bindtap="toEditPatient" class="cu-item bg-white margin-top margin" wx:for="{{list}}" style="border-radius: 15rpx;">
+		<view class="up padding">
+			<view class="text-lg" style="font-weight: 600;">{{item.name}}</view>
+			<view class="cu-tag text-grey">{{item.relation}}</view>
+		</view>
+		<view class="id padding-right padding-left padding-bottom">身份证:{{item.id}}</view>
+	</view>
+</view>
+
+<view  bindtap="toAddPatient" class="add padding bg-white margin-top margin text-center text-lg" style="border-radius: 15rpx;">
+	添加就诊人
+</view>

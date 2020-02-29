@@ -32,4 +32,15 @@ Page({
       modalName: null
     })
   },
+  addPatient(){
+	  wx.navigateTo({
+		  url : '/pages/my/addPatient/addPatient'
+	  })
+	  this.hideModal()
+  },
+  submitRegister(){
+	  wx.navigateTo({
+		  url : '/pages/ask/registerResult/registerResult'
+	  })
+  }
 })

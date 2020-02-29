@@ -6,4 +6,9 @@ Page({
 	registerResult : '预约成功',
 	icon : 'success'
   },
+  toRigisterMore(){
+	  wx.navigateTo({
+		  url : '/pages/my/registerMore/registerMore'
+	  })
+  }
 })

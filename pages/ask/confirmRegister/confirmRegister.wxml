@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">确认预约</view>
 </cu-custom>
@@ -63,7 +63,7 @@
 	    <view class="bg-white padding solid-top" wx:for="{{list}}" bindtap="choosePatient" data-target="{{item}}">
 			{{item.name}}
 	    </view>
-		<view class="margin-top bg-white padding">
+		<view class="margin-top bg-white padding" bindtap="addPatient">
 			+新建就诊人
 		</view>
 	  </view>
@@ -100,6 +100,6 @@
 	</view>
 	
 	<view class="button padding">
-		<view class="bg-green padding text-white text-lg confirm ">确认预约</view>
+		<view class="bg-green padding text-white text-lg confirm " bindtap="submitRegister">确认预约</view>
 	</view>
 </form>

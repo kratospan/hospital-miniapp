@@ -75,5 +75,25 @@ Component({
         current: 'https://image.weilanwl.com/color2.0/zanCode.jpg' // 当前显示图片的http链接      
       })
     },
+	toPatient(){
+		  wx.navigateTo({
+			  url : '/pages/my/patient/patient'
+		  })
+	},
+	toRegisterList(){
+		  wx.navigateTo({
+			  url : '/pages/my/registerList/registerList'
+		  })
+	},
+	toTestList(){
+		  wx.navigateTo({
+			  url : '/pages/my/testList/testList'
+		  })
+	},
+	toAbout(){
+		  wx.navigateTo({
+			  url : '/pages/my/about/about'
+		  })
+	}
   }
 })
