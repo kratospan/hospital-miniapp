@@ -27,5 +27,10 @@ Component({
         url: '/pages/plugin' + e.currentTarget.dataset.url
       })
     },
+	toJump(e){
+		wx.navigateTo({
+			url : '/pages/my/registerMore/registerMore'
+		})
+	}
   }
 });

@@ -4,6 +4,7 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
+	isShow : false, 
 	more : {
 		name : '未婚女性基础检查',
 		tag : ['女性专项','关爱女性'],
@@ -29,10 +30,21 @@ Page({
 		},{
 			name : '一般检查6',
 			content : '一般检查:血压，血压，血压，血压，血压，血压，血压，血压，血压，血压'
-		},]
+		},],
 	},
+	list : [{
+		name : '潘伟健',
+	},{
+		name : '陈可儿'
+	},{
+		name : '骆诗然'
+	},{
+		name : '吴紫薇'
+	}],
 	TabCur: 0,
-	scrollLeft:0
+	scrollLeft:0,
+	date : '',
+	index : ''
   },
   onLoad() {
     
@@ -45,5 +57,65 @@ Page({
       TabCur: e.currentTarget.dataset.id,
       // scrollLeft: (e.currentTarget.dataset.id-1)*60
     })
-  }
+  },
+  confirmTest(e){
+	  if(!this.data.date){
+		  wx.showToast({
+			  title : '请选择预约时间',
+			  icon : 'none'
+		  })
+		  return false
+	  }
+	  
+	if(!this.data.index){
+	  	wx.showToast({
+			  title : '请选择体检人',
+			  icon : 'none'
+	  	})
+	  	return false
+	}
+	wx.showToast({
+		title : '提交成功'
+	})
+  },
+  choosePatient(e){
+  	 // console.log(e.currentTarget.dataset.target.name)
+  	this.setData({
+  	  index: e.currentTarget.dataset.target.name
+  	})
+  	this.hideModal()
+  },
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
+  addPatient(){
+  	  wx.navigateTo({
+  		  url : '/pages/my/addPatient/addPatient'
+  	  })
+  	  this.hideModal()
+  },
+  _yybindhide: function () {
+  	this.setData({
+  		isShow : false
+  	})
+  },
+  __yybindshow: function (){
+	this.setData({
+		isShow : true
+	}) 
+  },
+  _yybindchange: function (e) {
+    var data = e.detail.time
+    // console.log(data)
+	this.setData({
+		date : data
+	})
+  },
 })

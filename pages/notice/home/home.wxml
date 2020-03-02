@@ -1,8 +1,7 @@
 <scroll-view scroll-y class="scrollPage">
-  <cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/cjkz2329.jpg">
-    <view slot="content">
-      <image src="/images/cjkz.png" mode="widthFix"></image>
-    </view>
+  <cu-custom bgColor="bg-gradual-blue">
+  	<!-- <view slot="backText">返回</view> -->
+  	<view slot="content">通知</view>
   </cu-custom>
   <!-- <view class="cu-card">
     <view class="cu-item bg-img shadow-blur" style="background-image:url({{item.img}})" bindtap="toChild" data-url="{{item.url}}" wx:for="{{list}}" wx:key>
@@ -20,7 +19,7 @@
 	  </view>
 	  
 	  <view class="cu-list menu-avatar" wx:if="{{notice_list}} != ''">
-	    <view class="cu-item" wx:for="{{notice_list}}" wx:key>
+	    <view class="cu-item" wx:for="{{notice_list}}" wx:key bindtap="toJump" data-target="{{item}}">
 	      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Taric.png);">
 	        <!-- <view class="cu-tag badge">99+</view> -->
 	      </view>

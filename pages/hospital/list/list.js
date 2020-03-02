@@ -21,4 +21,9 @@ Page({
   onReady() {
     
   },
+  toJump(){
+	  wx.navigateTo({
+		  url : '/pages/hospital/doctor/doctor'
+	  })
+  }
 })

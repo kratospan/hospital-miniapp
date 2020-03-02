@@ -26,13 +26,9 @@
   	    </view>
   	  </view>
   	  <view class="cu-list grid col-3 no-border ">
-  	    <view class="cu-item" wx:for="{{more}}" wx:key >
-  	      <view class="cuIcon-{{item.icon}} text-{{item.color}}" style="width: 200rpx; height: 200rpx;">
-  	        <!-- <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
-  	          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
-  	        </view> -->
-  	      </view>
-  	      <text>{{item.title}}</text>
+  	    <view bindtap="toJump" class="cu-item item" wx:for="{{more}}" wx:key  data-target="{{item}}">
+		  <image class="padding shadow lg round  bg-white icon" src="/images/{{item.img}}" style="width: 130rpx; height: 130rpx;"></image>
+  	      <view class="title margin-top">{{item.title}}</view>
   	    </view>
   	  </view>
   </view>

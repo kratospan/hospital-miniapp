@@ -44,6 +44,7 @@
 	"pages/ask/registerResult/registerResult",
 	"pages/ask/chooseTestProject/chooseTestProject",
 	"pages/ask/testMore/testMore",
+	"pages/ask/confirmTest/confirmTest",
 	
 	"pages/hospital/home/home",
 	"pages/hospital/department/department",
@@ -60,7 +61,9 @@
 	"pages/my/editPatient/editPatient",
 	"pages/my/about/about",
 	"pages/my/testList/testList",
-	"pages/my/testMore/testMore"
+	"pages/my/testMore/testMore",
+	
+	"pages/login/login"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
@@ -71,5 +74,11 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },
-  "sitemapLocation": "sitemap21.json"
+  "sitemapLocation": "sitemap21.json",
+  "plugins": {
+      "myPlugin": {
+        "version": "2.1.1",
+        "provider": "wx6b6cb15df2836ebe"
+      }
+    }
 }

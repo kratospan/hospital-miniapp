@@ -1,7 +1,7 @@
 <scroll-view scroll-y class="scrollPage" style="background-color: white;">
   <image src='/images/bg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
   <view class='nav-list'>
-    <view  hover-class='none' bindtap='toBook' data-title="{{item.title}}"  class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+    <view  hover-class='none' bindtap='toJump' data-target="{{item}}"  class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
 	  <view class="nav-title">{{item.title}}</view>
       <text class='cuIcon-{{item.icon}}'></text>
     </view>
@@ -16,7 +16,7 @@
 	    </view>
 	  </view>
 	  <view class="cu-list grid col-3 ">
-	    <view class="cu-item" wx:for="{{others}}" wx:key >
+	    <view class="cu-item" bindtap="toJump" wx:for="{{others}}" wx:key data-target="{{item}}">
 	      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
 	        <!-- <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
 	          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>

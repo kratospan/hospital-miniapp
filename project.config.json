@@ -339,6 +339,27 @@
 					"id": -1,
 					"name": "体检列表",
 					"pathName": "pages/my/testList/testList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "确认体检套餐",
+					"pathName": "pages/ask/confirmTest/confirmTest",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择时段",
+					"pathName": "pages/ask/chooseDate/chooseDate",
 					"scene": null
 				}
 			]

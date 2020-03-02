@@ -2,3 +2,63 @@
 	<view slot="backText">返回</view>
 	<view slot="content">挂号预约</view>
 </cu-custom>
+
+<view class="information padding bg-white">
+	<image class="cu-avatar lg round"></image>
+	<text class="margin-left">{{name}}</text>
+	[<text class="department">{{department}}</text>]·
+	<text class="text-grey text-sm">{{title}}</text>
+</view>
+
+<view class="good solid-bottom text-grey text-sm padding bg-white">
+	专业擅长:<text class="margin-left">{{good}}</text>
+</view>
+
+<view class="padding bg-white margin-tb">
+	出诊医院: <text class="text-left">佛山市第一人民医院</text>
+</view>
+
+<view class="date-list">
+	<view class="date-item margin-bottom bg-white padding" wx:for="{{list}}" bindtap="toChoose" data-target="{{item}}" data-index="{{index}}">
+		<view class="up">
+			<image src="/images/{{cur == index?'选中.png':'未选中.png'}}" style="height: 50rpx;width: 50rpx;"></image>
+			<text class="margin-left">{{item.date}}</text>
+		</view>
+		<block wx:if="{{cur == index}}">
+			<view class="down cu-list grid col-3 text-lg margin-top">
+				<view class="cu-item item {{time == 'am'?'line-green bg-green light':''}}" style="height:120rpx;" bindtap="chooseAm">预约上午</view>
+				<view class="cu-item item {{time == 'pm'?'line-green bg-green light':''}}" style="height:120rpx;" bindtap="choosePm">预约下午</view>
+				<view class="cu-item item line-grey text-grey" style="height:120rpx;">晚上无号</view>
+			</view>
+			<view class="text-grey padding">诊疗中心[垂虹街]·￥{{cost}}</view>
+			<view class="down cu-list grid col-3 text-lg" wx:if="{{time === 'am'}}">
+				<view class="cu-item item {{times == 0?'line-green':''}}" style="height:120rpx;">
+					<view>08:00</view>
+					<view>至09:00</view>
+				</view>
+				<view class="cu-item item {{times == 1?'line-green':''}}" style="height:120rpx;">
+					<view>09:00</view>
+					<view>至10:00</view>
+				</view>
+				<view class="cu-item item {{times == 2?'line-green':''}}" style="height:120rpx;">
+					<view>10:00</view>
+					<view>至11:00</view>
+				</view>
+			</view>
+			<view class="down cu-list grid col-3 text-lg" wx:if="{{time === 'pm'}}">
+				<view class="cu-item item {{times == 0?'line-green':''}}" style="height:120rpx;">
+					<view>14:00</view>
+					<view>至15:00</view>
+				</view>
+				<view class="cu-item item {{times == 1?'line-green':''}}" style="height:120rpx;">
+					<view>15:00</view>
+					<view>至16:00</view>
+				</view>
+				<view class="cu-item item {{times == 2?'line-green':''}}" style="height:120rpx;">
+					<view>16:00</view>
+					<view>至17:00</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>

@@ -38,12 +38,17 @@ Page({
 	list2 : [2,2,1,231,312,3123,123,123,123,123,123,123,123],
     load: true,
 	title : '',
+	type : '' //分三个参数 doctor department register
   },
-  onLoad() {
-    // wx.showLoading({
-    //   title: '加载中...',
-    //   mask: true
-    // });
+  onLoad(options) {
+	this.setData({
+		type : 'register'
+	})
+	if(options.type){
+		this.setData({
+			type : options.type
+		})
+	}
   },
   onReady() {
     // wx.hideLoading()
@@ -65,8 +70,25 @@ Page({
 	})
   },
   tabDepartment(){
-	  wx.navigateTo({
-		  url : "/pages/ask/chooseDoctor/chooseDoctor"
-	  })
+	  if(this.data.type == 'register'){
+		  wx.navigateTo({
+		  	url : "/pages/ask/chooseDoctor/chooseDoctor"
+		  })
+		  return false
+	  }
+	  
+	  if(this.data.type == 'doctor'){
+	  	wx.navigateTo({
+			url : "/pages/hospital/list/list"
+	  	})
+	  	return false	 
+	  }
+	  
+	  if(this.data.type == 'department'){
+	  	wx.navigateTo({
+	  		url : "/pages/hospital/department/department"
+	  	})
+	  	return false	  
+	  }
   }
 })

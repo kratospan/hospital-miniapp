@@ -12,7 +12,7 @@
 <view class="cu-card dynamic no-card">
   <view class="cu-item shadow">
     <view class="cu-list menu-avatar comment solids-top">
-      <view class="cu-item solid-bottom" wx:for="{{projectList}}" wx:key>
+      <view class="cu-item solid-bottom" wx:for="{{projectList}}" wx:key bindtap="toJump" data-target>
         <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
         <view class="content">
           <view class="text-grey text-lg">{{item.name}}</view>

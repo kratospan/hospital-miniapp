@@ -1,4 +1,16 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="backText">返回</view>
-	<view slot="content">体检套餐列表</view>
+	<view slot="content">确认体检套餐</view>
 </cu-custom>
+
+<yycalendar 
+	show="{{isShow}}" 
+	bind:yybindchange="_yybindchange" 
+	bind:yybindhide="_yybindhide"
+	title="选择预约时间"
+	calendarType="yydate"
+	monthCount = '2'
+	dateTitle = ''
+	dateSubTitle = '预约'
+	themeColor = '#39b54a'
+/>

@@ -6,7 +6,7 @@
 <view class="text-center text-lg bg-white">{{department}}共有{{num}}名医生</view>
 
 <view class="cu-list menu-avatar margin-top">
-    <view class="cu-item" wx:for="{{doctor}}">
+    <view class="cu-item" wx:for="{{doctor}}" bindtap="toJump" data-target="{{item}}">
       <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
       <view class="content">
         <view class="text-pink">

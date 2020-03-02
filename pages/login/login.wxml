@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-gradual-blue">
+	<!-- <view slot="backText">返回</view> -->
+	<view slot="content">大象医疗</view>
+</cu-custom>
+
+<view class="logo">
+	<image class="cu-avatar round" style="height: 280rpx; width: 280rpx; margin-top: 180rpx;" src="/images/logo.jpg"></image>
+	<view class="margin-top-xl text-xl">欢迎使用大象医疗</view>
+</view>
+
+<view>
+	<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="margin-xl" type="primary" bindtap="toLogin" style="margin-top: 150rpx;">点击微信登录</button>
+</view>

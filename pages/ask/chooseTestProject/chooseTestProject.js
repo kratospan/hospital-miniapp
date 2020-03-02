@@ -27,4 +27,9 @@ Page({
   onReady() {
     
   },
+  toJump(e){
+	 wx.navigateTo({
+		 url : '/pages/ask/testMore/testMore'
+	 })
+  }
 })

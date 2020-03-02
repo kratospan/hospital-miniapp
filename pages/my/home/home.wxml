@@ -1,10 +1,8 @@
 <scroll-view scroll-y class="scrollPage">
   
-  <cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/cjkz2329.jpg">
-    <view slot="content">
-      <image src="/images/cjkz.png" mode="widthFix"></image>
-    </view>
-  </cu-custom>
+<cu-custom bgColor="bg-gradual-blue">
+	<view slot="content">个人中心</view>
+</cu-custom>
   
   <view class="cu-card case {{isCard?'no-card':''}} margin-top">
     <view class="cu-item shadow "> 

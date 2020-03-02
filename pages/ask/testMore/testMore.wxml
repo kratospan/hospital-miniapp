@@ -28,6 +28,51 @@
 	</view>
 </view>
 
+<view class="cu-form-group margin-top">
+		<view class="title">体检人</view>
+		<view bindtap="showModal" value="{{index}}" data-target="bottomModal">
+			<view class="picker index?'':'text-grey'">
+				{{index?index:'体检人选择   >'}}
+			</view>
+		</view>
+	</view>
+	
+	<view class="cu-modal solid-bottom bottom-modal {{modalName=='bottomModal'?'show':''}}">
+	  <view class="cu-dialog text-lg">
+	    <view class="bg-white padding text-xl bar">
+			<view class="title2" style="">请选择就诊人</view>
+			<view class="cancel2" bindtap="hideModal">X</view>
+	    </view>
+	    <view class="bg-white padding solid-top" wx:for="{{list}}" bindtap="choosePatient" data-target="{{item}}">
+			{{item.name}}
+	    </view>
+		<view class="margin-top bg-white padding" bindtap="addPatient">
+			+新建就诊人
+		</view>
+	  </view>
+	</view>
+	
+	<view class="cu-form-group">
+		<view class="title">预约时间</view>
+		<view bindtap="__yybindshow" class="{{date?'':text-grey}}" mode="date" value="{{date}}" start="1970-09-01" end="2020-09-01" bindchange="DateChange">
+			<view class="picker">
+				{{date?date:'请选择预约时间'}}
+			</view>
+		</view>
+	</view>
+	
+	<yycalendar
+		show="{{isShow}}" 
+		bind:yybindchange="_yybindchange" 
+		bind:yybindhide="_yybindhide"
+		title="选择预约时间"
+		calendarType="yydate"
+		monthCount = '2'
+		dateTitle = ''
+		dateSubTitle = '预约'
+		themeColor = '#0081ff'
+	/>
+
 <scroll-view scroll-x class="bg-white nav margin-top">
   <view class="flex text-center">
     <view class="cu-item flex-sub {{index==TabCur?'text-green cur':''}}" wx:for="{{['套餐项目','注意事项']}}" wx:key bindtap="tabSelect" data-id="{{index}}">
@@ -64,5 +109,5 @@
 		<view class="num text-grey text-sm">共17个项目</view>
 		<view class="cost">个人支付:<text class="text-red" style="font-weight: 600; font-size: 20px;">￥{{more.cost}}</text></view>
 	</view>
-	<view class="right bg-green padding text-white">立即预约</view>
+	<view class="right bg-green padding text-white" bindtap="confirmTest">立即预约</view>
 </view>

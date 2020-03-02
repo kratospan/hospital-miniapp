@@ -36,3 +36,10 @@
 	padding: 8rpx;
 	border-radius: 5px;
 }
+
+.item {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+}
