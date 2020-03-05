@@ -1,4 +1,4 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="backText">返回</view>
-	<view slot="content">体检套餐列表</view>
+	<view slot="content">体检记录详情</view>
 </cu-custom>

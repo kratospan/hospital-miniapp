@@ -35,35 +35,30 @@
     "pages/about/home/home",
     "pages/plugin/drawer/drawer",
     "pages/plugin/verticalnav/verticalnav",
-    
-	"pages/ask/home/home",
-	"pages/ask/chooseDepartment/chooseDepartment",
-	"pages/ask/chooseDoctor/chooseDoctor",
-	"pages/ask/chooseDate/chooseDate",
-	"pages/ask/confirmRegister/confirmRegister",
-	"pages/ask/registerResult/registerResult",
-	"pages/ask/chooseTestProject/chooseTestProject",
-	"pages/ask/testMore/testMore",
-	"pages/ask/confirmTest/confirmTest",
-	
-	"pages/hospital/home/home",
-	"pages/hospital/department/department",
-	"pages/hospital/doctor/doctor",
-	"pages/hospital/list/list",
-	
-	"pages/notice/home/home",
-	
-	"pages/my/home/home",
-	"pages/my/registerList/registerList",
-	"pages/my/registerMore/registerMore",
-	"pages/my/patient/patient",
-	"pages/my/addPatient/addPatient",
-	"pages/my/editPatient/editPatient",
-	"pages/my/about/about",
-	"pages/my/testList/testList",
-	"pages/my/testMore/testMore",
-	
-	"pages/login/login"
+    "pages/ask/home/home",
+    "pages/ask/chooseDepartment/chooseDepartment",
+    "pages/ask/chooseDoctor/chooseDoctor",
+    "pages/ask/chooseDate/chooseDate",
+    "pages/ask/confirmRegister/confirmRegister",
+    "pages/ask/registerResult/registerResult",
+    "pages/ask/chooseTestProject/chooseTestProject",
+    "pages/ask/testMore/testMore",
+    "pages/ask/confirmTest/confirmTest",
+    "pages/hospital/home/home",
+    "pages/hospital/department/department",
+    "pages/hospital/doctor/doctor",
+    "pages/hospital/list/list",
+    "pages/notice/home/home",
+    "pages/my/home/home",
+    "pages/my/registerList/registerList",
+    "pages/my/registerMore/registerMore",
+    "pages/my/patient/patient",
+    "pages/my/addPatient/addPatient",
+    "pages/my/editPatient/editPatient",
+    "pages/my/about/about",
+    "pages/my/testList/testList",
+    "pages/my/testMore/testMore",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
@@ -74,11 +69,11 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },
-  "sitemapLocation": "sitemap21.json",
+  "sitemapLocation": "sitemap1.json",
   "plugins": {
-      "myPlugin": {
-        "version": "2.1.1",
-        "provider": "wx6b6cb15df2836ebe"
-      }
+    "myPlugin": {
+      "version": "2.1.3",
+      "provider": "wx6b6cb15df2836ebe"
     }
+  }
 }

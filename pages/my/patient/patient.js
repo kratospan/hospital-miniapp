@@ -4,18 +4,10 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
-	list : [{
-		name : '潘伟健',
-		id : '440921199806182135',
-		relation : '自己'
-	},{
-		name : '潘伟健2',
-		id : '440921199806182135',
-		relation : '自己'
-	}]
+	list : []
   },
   onLoad() {
-    
+    this.selectPatientList()
   },
   onReady() {
     
@@ -26,9 +18,33 @@ Page({
 	  })
   },
   toEditPatient(e){
-	  console.log(e.currentTarget.dataset.target)
+	  // console.log(e.currentTarget.dataset.target)
+	  var patient_id = e.currentTarget.dataset.target.patient_id
 	  wx.navigateTo({
-	  		  url : '/pages/my/editPatient/editPatient'
+	  		  url : "/pages/my/editPatient/editPatient?patient_id=" + patient_id
+	  })
+  },
+  
+  //获取用户的就诊人列表
+  selectPatientList(){
+	  var that = this
+	  wx.showLoading()
+	  var user_id = app.gGetStorage('userInfo').user_id
+	  app.gRequest({
+		  url : 'patient/select_patient_list',
+		  data : {
+			  user_id : user_id
+		  }
+	  }).then(function(res){
+		  if(res.code == 200){
+			 
+			  that.setData({
+				  list : res.data
+			  })
+			  wx.hideLoading()
+		  }else{
+			  app.showModal(res.msg)
+		  }
 	  })
   }
 })

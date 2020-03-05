@@ -10,32 +10,62 @@
 <scroll-view scroll-y class="scrollPage" style="background-color: white;">
 	<icon class="logo" type='{{icon}}' size='75'></icon>
 	<view class="registerResult">{{registerResult}}</view>
-	<view class="other-tips padding">
-		离就诊日还有<text class="text-red">{{lastDay}}</text>天，就诊当天至少提前<text class="text-red">30分钟</text>到达医院,凭就诊人身份证现场取号
+	
+	
+	<view class="other-tips padding" wx:if="{{type == 'register'}}">
+		就诊当天提前<text class="text-red">30分钟</text>到达医院凭就诊人身份证现场取号
+	</view>
+	<view class="other-tips padding" wx:if="{{type == 'test'}}">
+		体检当天提前<text class="text-red">30分钟</text>到达医院凭就诊人身份证现场取号
 	</view>
 	
 	<view class="line"></view>
 
-		<view class="item">
-			<view class="title ">就诊人</view>
-			<view class="content" style="margin-left: 60rpx;">潘伟健</view>
-		</view>
-		<view class="item" >
-			<view class="title">就诊时间</view>
-			<view class="content">2020-02-08 (周五) 15:00-16:00</view>
-		</view>
-		<view class="item" >
-			<view class="title">就诊医院</view>
-			<view class="content">佛山市第一人民医院</view>
-		</view>
-		<view class="item" >
-			<view class="title">就诊科室</view>
-			<view class="content">临床营养中心</view>
-		</view>
+		<block wx:if="{{type == 'register'}}">
+			<view class="item">
+				<view class="title ">就诊人</view>
+				<view class="content" style="margin-left: 60rpx;">{{list.patient_name}}</view>
+			</view>
+			<view class="item" >
+				<view class="title">就诊时间</view>
+				<view class="content">{{list.register_date}} ({{list.register_day}}) {{list.register_time}}</view>
+			</view>
+			<view class="item" >
+				<view class="title">就诊医院</view>
+				<view class="content">佛山市第一人民医院</view>
+			</view>
+			<view class="item" >
+				<view class="title">就诊科室</view>
+				<view class="content">{{list.office_name}}</view>
+			</view>
+			
+			<view class="text-sm to-more margin" bindtap="toRigisterMore">
+				查看订单详情 <text class="">></text>
+			</view>
+		</block>
 		
-		<view class="text-sm to-more margin" bindtap="toRigisterMore">
-			查看订单详情 <text class="">></text>
-		</view>
+		<block wx:if="{{type == 'test'}}">
+			<view class="item">
+				<view class="title ">预约人</view>
+				<view class="content" style="margin-left: 60rpx;">{{list.patient_name}}</view>
+			</view>
+			<view class="item" >
+				<view class="title">预约时间</view>
+				<view class="content">{{list.test_date}} ({{list.test_day}}) </view>
+			</view>
+			<view class="item" >
+				<view class="title">预约医院</view>
+				<view class="content">佛山市第一人民医院</view>
+			</view>
+			<view class="item" >
+				<view class="title">预约地点</view>
+				<view class="content">体检中心</view>
+			</view>
+			
+			<view class="text-sm to-more margin" bindtap="toRigisterMore">
+				查看订单详情 <text class="">></text>
+			</view>
+		</block>
 
 	
 	

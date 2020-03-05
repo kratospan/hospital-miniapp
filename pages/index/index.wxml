@@ -1,6 +1,6 @@
 <ask wx:if="{{PageCur=='ask'}}"></ask>
 <hospital wx:if="{{PageCur=='hospital'}}"></hospital>
-<notice wx:if="{{PageCur=='notice'}}"></notice>
+<notice id="notice" wx:if="{{PageCur=='notice'}}" cur="notice"></notice>
 <my wx:if="{{PageCur=='my'}}"></my>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="ask">

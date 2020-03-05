@@ -1,5 +1,5 @@
 <scroll-view scroll-y class="scrollPage">
-  <cu-custom bgColor="bg-gradual-blue">
+  <cu-custom bgColor="bg-gradual-green">
   	<!-- <view slot="backText">返回</view> -->
   	<view slot="content">通知</view>
   </cu-custom>
@@ -18,28 +18,26 @@
 	    </view>
 	  </view>
 	  
-	  <view class="cu-list menu-avatar" wx:if="{{notice_list}} != ''">
-	    <view class="cu-item" wx:for="{{notice_list}}" wx:key bindtap="toJump" data-target="{{item}}">
-	      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Taric.png);">
-	        <!-- <view class="cu-tag badge">99+</view> -->
-	      </view>
-	      <view class="content">
+	  <view class="cu-list menu-avatar">
+	    <view class="cu-item" wx:for="{{noticeList}}" wx:key bindtap="toJump" data-target="{{item}}">
+	      <!-- <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Taric.png);"></view> -->
+	      <image class="bg-white cu-avatar" src="../../../images/通知.png"></image>
+		  <view class="content">
 	        <view class="text-grey">
-	          <text class="text-cut">{{item.title}}</text>
-	          <!-- <view class="cu-tag round bg-orange sm">战士</view> -->
+	          <text class="text-cut">{{item.notice_title}}</text>
 	        </view>
 	        <view class="text-gray text-sm flex">
-	          <text class="text-cut">{{item.content}}</text>
+	          <text class="text-cut">{{item.notice_content}}</text>
 	        </view>
 	      </view>
 	      <view class="action">
-	        <view class="text-grey text-xs" style=" width: 150rpx; margin-left: -50rpx;">{{item.date}}</view>
+	        <view class="text-grey text-xs" style=" width: 150rpx; margin-left: -50rpx;">{{item.notice_time}}</view>
 	        <!-- <view class="cuIcon-notice_forbid_fill text-gray"></view> -->
 	      </view>
 	    </view>
 	  </view>
 	  
-	  <view class="text-grey" style="text-align: center; margin-top: 65rpx;" wx:if="{{has_notice}}">
+	  <view class="text-grey" style="text-align: center; margin-top: 65rpx;" wx:if="{{noticeList == ''}}">
 		  已无更多消息
 	  </view>
   </view>

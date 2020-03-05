@@ -3,18 +3,25 @@
 	<view slot="content">医生列表</view>
 </cu-custom>
 
-<view class="text-center text-lg bg-white">{{department}}共有{{num}}名医生</view>
+<view class="text-center text-lg bg-white" wx:if="{{doctor.num}}" >{{department}}共有{{num}}名医生</view>
 
 <view class="cu-list menu-avatar margin-top">
     <view class="cu-item" wx:for="{{doctor}}" bindtap="toJump" data-target="{{item}}">
-      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-      <view class="content">
+      <!-- <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view> -->
+      <image src="../../../images/男医生.png" class="cu-avatar bg-white lg" wx:if="{{item.doctor_sex == 1}}"></image>
+	  <image src="../../../images/女医生.png" class="cu-avatar bg-white lg" wx:if="{{item.doctor_sex == 0}}"></image>
+	  <view class="content">
         <view class="text-pink">
-          <text class="text-cut">{{item.name}}</text>
+          <text class="text-cut">{{item.doctor_name}}</text>·
+		  [<text class="">{{item.doctor_title}}</text>]
         </view>
         <view class="text-gray text-sm flex">
-          <text class="text-cut">{{item.good}}</text>
+          <text class="text-cut">{{item.doctor_good == null?'暂无':item.doctor_good}}</text>
         </view>
       </view>
     </view>
+  </view>
+  
+  <view class="text-grey" style="text-align: center; margin-top: 65rpx;" wx:if="{{doctor == ''}}">
+  		  已无更多信息
   </view>

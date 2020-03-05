@@ -3,19 +3,35 @@
 	<view slot="content">医生选择</view>
 </cu-custom>
 
-<view class="cu-bar bg-white solid-bottom">
+<view  class="date-list text-grey">
+	<!-- <view class="date-item padding bg-white">
+		<view>全部</view>
+	</view> -->
+	<view class="date-item bg-white  {{has_choose.date == item.date?'border-bottm':''}}" wx:for="{{dateList}}" bindtap="choose_date" data-target="{{item}}">
+		<view class="text-s padding-top title">{{item.day}}</view>
+		<view class="margin-top  padding-bottom text-xl">{{item.date}}</view>
+	</view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
       <text class="cuIcon-title text-orange "></text> 医生选择
     </view>
   </view>
   <view class="cu-list menu-avatar">
-    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key data-target="move-box-{{index}}">
-      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{schedulList}}" wx:key data-target="move-box-{{index}}">
+      <!-- <image src="../../../images/男医生.svg" class="cu-avatar bg-white"></image> -->
+	  <image src="../../../images/女医生.svg" class="cu-avatar bg-white"></image>
+	  <!-- <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view> -->
       <view class="content">
-        <view class="text-grey">文晓港</view>
+        <view class="text-grey">文晓港2</view>
         <view class="text-gray text-sm">
           消息未送达
 		</view>
       </view>
     </view>
+  </view>
+  
+  <view class="text-grey" style="text-align: center; margin-top: 65rpx;" wx:if="{{schedulList == ''}}">
+  		  已无更多排班信息
   </view>

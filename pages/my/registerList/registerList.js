@@ -4,54 +4,25 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
-	list : [{
-		status : 101,
-		time : {
-			date : '2020-02-12',
-			week : '星期五',
-			time : '15:00-16:00'
-		},
-		hospital_name : '佛山市第一人名医院',
-		doctor_name : '梁如珠',
-		doctor_department : '营养中心',
-		doctor_title : '内科专家',
-		patient_name : '潘伟健',
-		cost : 19
-	},{
-		status : '预约成功',
-		time : {
-			date : '2020-02-12',
-			week : '星期五',
-			time : '15:00-16:00'
-		},
-		hospital_name : '佛山市第一人名医院',
-		doctor_name : '梁如珠',
-		doctor_department : '营养中心',
-		doctor_title : '内科专家',
-		patient_name : '潘伟健2',
-		cost : 19
-	}],
-	patient_list : [{
-		name : '潘伟健',
-	},{
-		name : '陈可儿'
-	},{
-		name : '骆诗然'
-	},{
-		name : '吴紫薇'
-	}],
+	list : [],
+	patient_list : [],
+	has_choose : []
   },
   onLoad() {
-    
+	this.setData({
+		user_id : app.gGetStorage('userInfo').user_id
+	})
+    this.selectPatientList()
+	// this.select_register()
   },
   onReady() {
     
   },
   choosePatient(e){
-  	 // console.log(e.currentTarget.dataset.target.name)
   	this.setData({
-  	  index: e.currentTarget.dataset.target.name
+  	  has_choose: e.currentTarget.dataset.target
   	})
+	this.select_register()
   	this.hideModal()
   },
   showModal(e) {
@@ -64,4 +35,53 @@ Page({
       modalName: null
     })
   },
+  
+  //获取就诊人列表
+  selectPatientList(){
+	  var that = this
+	  wx.showLoading()
+	  var data = {
+		  user_id : this.data.user_id
+	  }
+	  app.gRequest({
+		  url : 'patient/select_patient_list',
+		  data : data
+	  }).then(function(res){
+		  if(res.code == 200){
+			  that.setData({
+				  patient_list : res.data
+			  })
+			  that.setData({
+				  has_choose : res.data[0]
+			  })
+			  that.select_register()
+		  }else{
+			  wx.hideLoading()
+			  app.showModal(res.msg)
+		  }
+	  })
+  },
+  
+  //获取挂号记录列表
+  select_register(){
+	  // wx.showLoading()
+	  // var patient_id = this.data.has_Choose.patient_id
+	  var that = this 
+	  var data = {
+		  'patient_id' : this.data.has_choose.patient_id
+	  }
+	  app.gRequest({
+		  url : 'register/select_register',
+		  data : data
+	  }).then(function(res){
+		  wx.hideLoading()
+		  if(res.code == 200){
+			  that.setData({
+				  list : res.data
+			  })
+		  }else{
+			  app.showModal(res.msg)
+		  }
+	  })
+  }
 })

@@ -5,10 +5,10 @@
 
 <view class="cu-bar bg-white solid-bottom">
   <view class="action text-sl">
-    <text class="cuIcon-title text-blue"></text>{{information.name}}
+    <text class="cuIcon-title text-blue"></text>{{officeMore.office_name}}
   </view>
 </view>
 
-<view class="text-grey padding bg-white">科室地址:{{information.name}}</view>
-<view class="text-grey padding bg-white">科室电话:{{information.phone}}</view>
-<view class="padding text-grey text-lg bg-white">{{information.introduction}}</view>
+<view class="text-grey padding bg-white">科室地址:{{officeMore.office_name}}</view>
+<view class="text-grey padding bg-white">科室电话:{{officeMore.office_phone == null?'暂无':officeMore.office_phone}}</view>
+<view class="padding text-grey text-lg bg-white">{{officeMore.office_introduction == null?'暂无科室介绍':officeMore.office_introduction}}</view>

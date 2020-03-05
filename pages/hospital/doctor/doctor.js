@@ -4,18 +4,37 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
-	information : {
-		name : '潘伟健',
-		department : '内科',
-		title : '内科专家',
-		good : '爱好好年阿萨德的',
-		introduciton : '来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待来看待'
-	}
+	doctor : [],
+	doctor_id : ''
   },
-  onLoad() {
-    
+  onLoad(options) {
+	// console.log(options)
+    this.setData({
+		doctor_id : options.doctor_id
+	})
   },
   onReady() {
-    
+    this.selectDoctor()
   },
+  
+  //获取医生的详细信息
+  selectDoctor(){
+	  wx.showLoading()
+	  var that = this
+	  app.gRequest({
+		  url : 'doctor/select_doctor',
+		  data : {
+			  doctor_id : that.data.doctor_id
+		  }
+	  }).then(function(res){
+		  wx.hideLoading()
+		  if(res.code == 200){
+			  that.setData({
+				  doctor : res.data
+			  })
+		  }else{
+			  app.showModal(res.msg)
+		  }
+	  })
+  }
 })

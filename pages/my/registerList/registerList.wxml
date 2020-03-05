@@ -4,7 +4,7 @@
 </cu-custom>
 
 <view class="choose padding bg-white">
-	<text class="text-lg" style="font-weight: 600;">潘伟健</text>
+	<text class="text-lg" style="font-weight: 600;">{{has_choose.patient_name}}</text>
 	<text class="cu-tag text-green" bindtap="showModal" value="{{index}}" data-target="bottomModal">切换就诊人</text>
 </view>
 
@@ -15,7 +15,7 @@
 			<view class="cancel2" bindtap="hideModal">X</view>
 	    </view>
 	    <view class="bg-white padding solid-top" wx:for="{{patient_list}}" bindtap="choosePatient" data-target="{{item}}">
-			{{item.name}}
+			{{item.patient_name}}
 	    </view>
 	</view>
 </view>
@@ -23,16 +23,16 @@
 <view class="cu-list">
 	<view class="cu-item margin-top bg-white" wx:for="{{list}}">
 		<view class="time solid-bottom padding" style="font-weight: 600;">
-			就诊时间: <text style="margin-left:10rpx;">{{item.time.date}} </text>
-			<text style="margin-left:10rpx;">({{item.time.week}})</text>
-			<text style="margin-left:10rpx;">{{item.time.time}}</text>
-			<text style="margin-left:10rpx;">{{item.status}}</text>
+			就诊时间: <text style="margin-left:10rpx;">{{item.register_date}} </text>
+			<text style="margin-left:10rpx;">({{item.register_day}})</text>
+			<text style="margin-left:10rpx;">{{item.register_time}}</text>
+			<text style="margin-left:10rpx;">{{item.register_status}}</text>
 		</view>
 		<view class="solid-bottom padding">
-			<view class="text-lg" style="font-wight:600;">{{item.hospital_name}}</view>
-			<view style="margin-top:15rpx;">{{item.doctor_name}}[{{item.doctor_department}}]·{{item.doctor_title}}</view>
+			<view class="text-lg" style="font-wight:600;">佛山市第一人民医院</view>
+			<view style="margin-top:15rpx;">{{item.doctor_name}}[{{item.department_name}}]·{{item.doctor_title}}</view>
 			<view style="margin-top:15rpx;">就诊人:{{item.patient_name}}</view>
-			<view class="text-right text-lg" style="font-wight；">￥{{item.cost}}</view>
+			<view class="text-right text-lg" style="font-wight；">￥{{item.doctor_payment}}</view>
 		</view>
 		<view class="padding text-lg text-right">
 			<text style="border: 1px solid grey; padding:15rpx;">取消预约</text>
@@ -41,3 +41,7 @@
 		<!-- <view class="line"></view> -->
 	</view>
 </view>
+
+<view class="text-grey" style="text-align: center; margin-top: 65rpx;" wx:if="{{list == ''}}">
+		  已无更多记录
+	  </view>

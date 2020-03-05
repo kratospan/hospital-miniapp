@@ -6,9 +6,9 @@
 <view class="information bg-white">
 	<view class="logo"></view>
 	<view class="left">
-		<view class="title text-lg">{{more.name}}</view>
+		<view class="title text-lg">{{meal_more.meal_name}}</view>
 		<view class="tag">
-			<view class="tag-item cu-tag bg-blue" wx:for="{{more.tag}}">{{item}}</view>
+			<view class="tag-item cu-tag bg-blue" wx:for="{{tagList}}">{{item}}</view>
 		</view>
 	</view>
 </view>
@@ -31,8 +31,8 @@
 <view class="cu-form-group margin-top">
 		<view class="title">体检人</view>
 		<view bindtap="showModal" value="{{index}}" data-target="bottomModal">
-			<view class="picker index?'':'text-grey'">
-				{{index?index:'体检人选择   >'}}
+			<view class="picker has_choose?'':'text-grey'">
+				{{has_choose != ''?has_choose.patient_name:'体检人选择   >'}}
 			</view>
 		</view>
 	</view>
@@ -43,8 +43,8 @@
 			<view class="title2" style="">请选择就诊人</view>
 			<view class="cancel2" bindtap="hideModal">X</view>
 	    </view>
-	    <view class="bg-white padding solid-top" wx:for="{{list}}" bindtap="choosePatient" data-target="{{item}}">
-			{{item.name}}
+	    <view class="bg-white padding solid-top" wx:for="{{patientList}}" bindtap="choosePatient" data-target="{{item}}">
+			{{item.patient_name}}
 	    </view>
 		<view class="margin-top bg-white padding" bindtap="addPatient">
 			+新建就诊人
@@ -87,17 +87,14 @@
 	    <text class='cuIcon-titles text-green text-sl '></text> 套餐项目
 	  </view>
 	</view>
-	<view class="project-item padding solid-bottom" wx:for="{{more.project}}">
-		<view class="name text-lg">{{index+1}}、{{item.name}}</view>
-		<view class="content margin-top text-s">{{item.content}}</view>
+	<view class="project-item padding solid-bottom" wx:for="{{projectList}}">
+		<view class="name text-lg">{{index+1}}、{{item.project_name}}</view>
+		<view class="content margin-top text-s">{{item.project_introduce != null?item.project_introduce:'暂无项目介绍'}}</view>
 	</view>
-	
-	
-	
 </view>
 
 <view wx:if="{{TabCur==1}}" class="bg-white padding">
-	{{more.know}}
+	{{meal_more.meal_attention != null?meal_more.meal_attention:'暂无注意事项'}}
 </view>
 
 <view class="bottom text-center text-grey text-sm margin-top" style="height: 160rpx;">
@@ -107,7 +104,7 @@
 <view class="pay bg-white text-lg">
 	<view class="left">
 		<view class="num text-grey text-sm">共17个项目</view>
-		<view class="cost">个人支付:<text class="text-red" style="font-weight: 600; font-size: 20px;">￥{{more.cost}}</text></view>
+		<view class="cost">个人支付:<text class="text-red" style="font-weight: 600; font-size: 20px;">￥{{meal_more.meal_cost}}</text></view>
 	</view>
 	<view class="right bg-green padding text-white" bindtap="confirmTest">立即预约</view>
 </view>

@@ -4,52 +4,24 @@
 </cu-custom>
 
 <form>
-	
-	<!-- <view class="cu-form-group">
-		<view class="title">收货地址</view>
-		<input placeholder="统一标题的宽度"></input>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">收货地址</view>
-		<input placeholder="输入框带个图标"></input>
-		<text class="cuIcon-locationfill text-orange"></text>
-	</view> -->
-<!-- 	<view class="cu-form-group">
-		<view class="title">验证码</view>
-		<input placeholder="输入框带个按钮"></input>
-		<button class="cu-btn bg-green shadow">验证码</button>
-	</view> -->
-	
-	<!-- <view class="cu-form-group">
-		<view class="title">手机号码</view>
-		<input placeholder="输入框带标签"></input>
-		<view class="cu-capsule radius">
-			<view class="cu-tag bg-blue">
-				+86
-			</view>
-			<view class="cu-tag line-blue">
-				中国大陆
-			</view>
-		</view>
-	</view> -->
 	<view class="information bg-white padding">
-		<view class="item">2020-02-08 (周五) 09:00-10:00</view>
+		<view class="item">{{registerDate}} (周{{has_choose.day}}) 09:00-10:00</view>
 		<view class="item2 ">佛山市第一人民医院</view>
-		<view class="item2 ">陈荣恒[体表肿瘤外科专家] <text class="text-grey text-xs">其他·整形美容二科</text></view>
+		<view class="item2 ">{{doctorInfo.doctor_name}}[{{doctorInfo.doctor_title}}] <text class="text-grey text-xs">{{doctor.department_name}}</text></view>
 	</view>
 	
 	<view class="cu-form-group bor" style="border-top: 1rpx solid #eee;">
 		<view class="title">费用</view>
 			<view class="picker">
-				￥25.00
+				￥{{doctorInfo.doctor_payment}}
 			</view>
 	</view>
 	
 	<view class="cu-form-group margin-top">
 		<view class="title">就诊人</view>
-		<view bindtap="showModal" value="{{index}}" data-target="bottomModal">
+		<view bindtap="showModal" value="{{has_choose_patient.patient_name}}" data-target="bottomModal">
 			<view class="picker index?'':'text-grey'">
-				{{index?index:'就诊人选择   >'}}
+				{{has_choose_patient != ''?has_choose_patient.patient_name:'就诊人选择   >'}}
 			</view>
 		</view>
 	</view>
@@ -60,8 +32,8 @@
 			<view class="title2" style="">请选择就诊人</view>
 			<view class="cancel2" bindtap="hideModal">X</view>
 	    </view>
-	    <view class="bg-white padding solid-top" wx:for="{{list}}" bindtap="choosePatient" data-target="{{item}}">
-			{{item.name}}
+	    <view class="bg-white padding solid-top" wx:for="{{patientList}}" bindtap="choosePatient" data-target="{{item}}">
+			{{item.patient_name}}
 	    </view>
 		<view class="margin-top bg-white padding" bindtap="addPatient">
 			+新建就诊人

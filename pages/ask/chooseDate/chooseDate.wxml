@@ -4,14 +4,15 @@
 </cu-custom>
 
 <view class="information padding bg-white">
-	<image class="cu-avatar lg round"></image>
-	<text class="margin-left">{{name}}</text>
-	[<text class="department">{{department}}</text>]·
-	<text class="text-grey text-sm">{{title}}</text>
+	<image src="../../../images/男医生.png" class="cu-avatar bg-white lg" wx:if="{{doctor.doctor_sex == 1}}"></image>
+	<image src="../../../images/女医生.png" class="cu-avatar bg-white lg" wx:if="{{doctor.doctor_sex == 0}}"></image>
+	<text class="margin-left">{{doctor.doctor_name}}</text>
+	[<text class="department">{{doctor.department_name}}</text>]·
+	<text class="text-grey text-sm">{{doctor.doctor_title}}</text>
 </view>
 
 <view class="good solid-bottom text-grey text-sm padding bg-white">
-	专业擅长:<text class="margin-left">{{good}}</text>
+	专业擅长:<text class="margin-left">{{doctor.doctor_good == null?'暂无':doctor.doctor_good}}</text>
 </view>
 
 <view class="padding bg-white margin-tb">
@@ -19,46 +20,55 @@
 </view>
 
 <view class="date-list">
-	<view class="date-item margin-bottom bg-white padding" wx:for="{{list}}" bindtap="toChoose" data-target="{{item}}" data-index="{{index}}">
-		<view class="up">
-			<image src="/images/{{cur == index?'选中.png':'未选中.png'}}" style="height: 50rpx;width: 50rpx;"></image>
-			<text class="margin-left">{{item.date}}</text>
+	<view  class="date-list text-grey">
+		<view class="date-item bg-white  {{has_choose.date == item.date?'border-bottm':''}}" wx:for="{{dateList}}" bindtap="choose_date" data-target="{{item}}">
+			<view class="text-s padding-top">{{item.day}}</view>
+			<view class="margin-top  padding-bottom text-xl">{{item.date}}</view>
 		</view>
-		<block wx:if="{{cur == index}}">
-			<view class="down cu-list grid col-3 text-lg margin-top">
-				<view class="cu-item item {{time == 'am'?'line-green bg-green light':''}}" style="height:120rpx;" bindtap="chooseAm">预约上午</view>
-				<view class="cu-item item {{time == 'pm'?'line-green bg-green light':''}}" style="height:120rpx;" bindtap="choosePm">预约下午</view>
-				<view class="cu-item item line-grey text-grey" style="height:120rpx;">晚上无号</view>
-			</view>
-			<view class="text-grey padding">诊疗中心[垂虹街]·￥{{cost}}</view>
-			<view class="down cu-list grid col-3 text-lg" wx:if="{{time === 'am'}}">
-				<view class="cu-item item {{times == 0?'line-green':''}}" style="height:120rpx;">
-					<view>08:00</view>
-					<view>至09:00</view>
-				</view>
-				<view class="cu-item item {{times == 1?'line-green':''}}" style="height:120rpx;">
-					<view>09:00</view>
-					<view>至10:00</view>
-				</view>
-				<view class="cu-item item {{times == 2?'line-green':''}}" style="height:120rpx;">
-					<view>10:00</view>
-					<view>至11:00</view>
-				</view>
-			</view>
-			<view class="down cu-list grid col-3 text-lg" wx:if="{{time === 'pm'}}">
-				<view class="cu-item item {{times == 0?'line-green':''}}" style="height:120rpx;">
-					<view>14:00</view>
-					<view>至15:00</view>
-				</view>
-				<view class="cu-item item {{times == 1?'line-green':''}}" style="height:120rpx;">
-					<view>15:00</view>
-					<view>至16:00</view>
-				</view>
-				<view class="cu-item item {{times == 2?'line-green':''}}" style="height:120rpx;">
-					<view>16:00</view>
-					<view>至17:00</view>
-				</view>
-			</view>
-		</block>
 	</view>
 </view>
+
+	<block wx:if="{{schedulList}}" >
+		<view class="down cu-list grid col-3 text-lg margin-top-lg">
+			<view class="cu-item item {{time == 'am'?'line-green bg-green light':''}}" style="height:120rpx;" bindtap="chooseAm">预约上午</view>
+			<view class="cu-item item {{time == 'pm'?'line-green bg-green light':''}}" style="height:120rpx;" bindtap="choosePm">预约下午</view>
+			<view class="cu-item item line-grey text-grey" style="height:120rpx;">晚上无号</view>
+		</view>
+		<view class="text-grey padding">诊疗中心[垂虹街]·￥{{doctor.doctor_payment}}</view>
+		<view class="down cu-list grid col-3 text-lg" wx:if="{{time === 'am'}}">
+			<view class="cu-item item {{item == 3?'line-grey':''}}" style="height:150rpx;" wx:for="{{schedulList.am}}" wx:key="index" bindtap="chooseTime" data-index="{{index}}" data-type="{{item}}">
+				<block wx:if="{{index == 1}}">
+					<view>09:00</view>
+					<view>至10:00</view>
+				</block>
+				<block wx:if="{{index == 2}}">
+					<view>10:00</view>
+					<view>至11:00</view>
+				</block>
+				<block wx:if="{{index == 3}}">
+					<view>11:00</view>
+					<view>至12:00</view>
+				</block>
+				<view class="text-sm">{{item == 3?'无号':'可预约'}}</view>
+			</view>
+		</view>
+		<view class="down cu-list grid col-3 text-lg" wx:if="{{time === 'pm'}}">
+			<view class="cu-item item {{item == 3?'line-grey':''}}" style="height:150rpx;" wx:for="{{schedulList.pm}}" bindtap="chooseTime" data-index="{{index}}" data-type="{{item}}">
+				<block wx:if="{{index == 4}}">
+					<view>14:00</view>
+					<view>至15:00</view>
+				</block>
+				<block wx:if="{{index == 5}}">
+					<view>15:00</view>
+					<view>至16:00</view>
+				</block>
+				<block wx:if="{{index == 6}}">
+					<view>16:00</view>
+					<view>至17:00</view>
+				</block>
+				<view class="text-sm">{{item == 3?'无号':'可预约'}}</view>
+			</view>
+		</view>
+	</block>
+	
+	<!-- <view class="margin-top-lg padding margin bg-green text-white text-center">确认预约</view> -->

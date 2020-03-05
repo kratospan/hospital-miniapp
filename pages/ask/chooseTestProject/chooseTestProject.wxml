@@ -9,24 +9,25 @@
     <text class='cuIcon-titles text-green '></text> 体检套餐列表
   </view>
 </view>
+
 <view class="cu-card dynamic no-card">
   <view class="cu-item shadow">
     <view class="cu-list menu-avatar comment solids-top">
-      <view class="cu-item solid-bottom" wx:for="{{projectList}}" wx:key bindtap="toJump" data-target>
+      <view class="cu-item solid-bottom" wx:for="{{mealList}}" wx:key bindtap="toJump" data-target="{{item}}">
         <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
         <view class="content">
-          <view class="text-grey text-lg">{{item.name}}</view>
+          <view class="text-grey text-lg">{{item.meal_name}}</view>
 		  <view class="tag-list" style="margin: 5rpx;">
-			<view class="cu-tag bg-green light" wx:for="{{item.tag}}" wx:key>{{item}}</view>
+			<view class="cu-tag bg-green light" wx:for="{{tagList}}" wx:key>{{item}}</view>
 		  </view>
           <view class="text-gray" style="margin: 5rpx;">
-			1、体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，体检前三天，
-          </view>
+			{{item.meal_introduce}}
           <view class=" flex justify-between">
-            <view class="text-df text-green">￥{{item.payment}}</view>
+            <view class="text-df text-green">￥{{item.meal_cost}}</view>
           </view>
         </view>
       </view>
     </view>
   </view>
+</view>
 </view>

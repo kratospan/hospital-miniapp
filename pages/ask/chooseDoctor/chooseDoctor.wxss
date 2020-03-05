@@ -1,0 +1,21 @@
+.date-list {
+	display: flex;
+	flex-direction: row;
+}
+
+.date-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 120rpx;
+	border-left: 1px solid #f1f1f1;
+	border-right: 1px solid #f1f1f1;
+}
+
+.title {
+	
+}
+
+.border-bottm {
+	border-bottom: 7rpx solid #39b54a;
+}

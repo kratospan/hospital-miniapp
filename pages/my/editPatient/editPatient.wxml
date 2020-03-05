@@ -6,23 +6,23 @@
 <form>
 	<view class="cu-form-group margin-top">
 		<view class="title">姓名</view>
-		<view>潘伟健</view>
+		<view>{{name}}</view>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">身份证</view>
-		<view>440921199806182135</view>
+		<view>{{card}}</view>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">性别</view>
-		<view>男</view>
+		<view>{{sex == 0?'女':'男'}}</view>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">出生日期</view>
-		<view>1997-11-11</view>
+		<view>{{birth}}</view>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">手机号码</view>
-		<input placeholder="输入框带标签"></input>
+		<input bindinput="inputPhone" placeholder="输入框带标签" value="{{phone}}"></input>
 		<view class="cu-capsule radius">
 			<view class="cu-tag bg-blue">
 				+86
@@ -39,7 +39,7 @@
 	</view>
 	<view class="cu-form-group">
 		<view class="title">与就诊人的关系</view>
-		<picker bindchange="PickerChange" value="{{relation}}" range="{{relationPicker}}">
+		<picker bindchange="PickerChange" value="{{list.patient_relationship}}" range="{{relationPicker}}">
 			<view class="picker">
 				{{relation?relation:'请选择与就诊人的关系'}}
 			</view>
@@ -56,6 +56,6 @@
 	确认修改
 </view>
 
-<view class="button margin padding bg-red text-white text-lg text-center" bindtap="deletePatient">
+<!-- <view class="button margin padding bg-red text-white text-lg text-center" bindtap="deletePatient">
 	删除
-</view>
+</view> -->

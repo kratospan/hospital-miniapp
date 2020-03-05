@@ -1,4 +1,6 @@
+// var app = getApp()
 Component({
+  
   options: {
     addGlobalClass: true,
   },
@@ -29,6 +31,23 @@ Component({
 	}]
   },
   methods : {
+	
+    toLink(){
+      wx.request({
+        url: 'http://www.tp5.com/index.php/api/patient/select_patient', //仅为示例，并非真实的接口地址
+        data: {
+          'patient_id': 10,
+        },
+		method : 'POST',
+        header: {
+          'content-type': 'application/json', // 默认值
+		  
+		},
+        success(res) {
+          console.log(res.data)
+        }
+      })
+    },
 	  toBook(res){
 		  var res = res.currentTarget.dataset.title
 		  if(res == '挂号预约'){
@@ -52,7 +71,8 @@ Component({
 	  		  })
 	  },
 	  toJump(e){
-		  console.log(e)
+		  // console.log(e)
+      this.toLink()
 		var title = e.currentTarget.dataset.target.title
 		if(title == '添加就诊人'){
 			wx.navigateTo({
@@ -81,5 +101,9 @@ Component({
 		}
 	  }
 	  
+  },
+  onLoad(){
+    // console.log('开始')
+    this.methods.toLink()
   }
 })

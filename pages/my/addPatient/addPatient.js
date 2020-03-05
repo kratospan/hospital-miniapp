@@ -125,10 +125,49 @@ Page({
 		})
 		return false
 	}
-	wx.showToast({
-		title : '提交成功'
-	})
+	this.submit_add_patient()
   },
+  
+  sendCode(){
+	   
+  },
+  
+  check_code(){
+	  
+  },
+  
+  //提交添加就诊人的表单
+  submit_add_patient(){
+	  var sex = 0
+	  if(this.data.sex == '男'){
+		  sex = 1
+	  }
+	  var user_id = app.gGetStorage('userInfo').user_id
+	  var data = {
+		  'patient_name' : this.data.name,
+		  'patient_card' : this.data.ID,
+		  'patient_sex'  : sex,
+		  'patient_birth' : this.data.date,
+		  'patient_phone' : this.data.phone,
+		  'patient_relationship' : this.data.relation,
+		  'user_id' : user_id
+	  }
+	  wx.showLoading()
+	  app.gRequest({
+		  url : 'patient/add_patient',
+		  data : data
+	  }).then(function(res){
+		  if(res.code == 200){
+			  wx.hideLoading()
+			  app.showModal(res.msg)
+			  
+		  }else{
+			  wx.hideLoading()
+			  app.showModal(res.msg)
+		  }
+	  })
+  },
+  
   /*身份证验证输入是否正确 
    *身份证号合法性验证 
   *支持15位和18位身份证号 *支持地址编码、出生日期、校验位验证*/

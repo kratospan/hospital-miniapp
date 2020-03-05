@@ -95,6 +95,60 @@ App({
         name: 'white',
         color: '#ffffff'
       },
-    ]
+    ],
+	domain : '',
+  },
+  //自定义的全局方法
+  returnMsg(){
+  	console.log('我是一个全局的方法')
+  },
+  
+  showModal(title,duration=1500,icon = 'none',){
+	wx.showToast({
+		title : title,
+		icon : icon,
+		duration :1500
+	})
+  },
+  
+  gRequest(data){
+	return new Promise(function (resolve,reject){
+		wx.request({
+		   url: 'http://www.tp5.com/index.php/api/' + data['url'], //仅为示例，并非真实的接口地址
+		   data: data['data'],
+		   method: 'POST',
+		   header: {
+		     'content-type': 'application/json' // 默认值
+		   },
+		   success (res) {
+			   // console.log(res.data)
+			   resolve(res.data)
+		   }
+		})
+	})
+  },
+  
+  gGetStorage(name){
+	  try {
+	    var value = wx.getStorageSync(name)
+	    if (value) {
+			return value
+	    }else{
+			return false
+		}
+	  } catch (e) {
+	    // Do something when catch error
+	  }
+  },
+  
+  gTimeToDate(timestamp){
+	  var data = new Date(timestamp*1000)
+	  var year = data.getFullYear()
+	  var month = data.getMonth() + 1
+	  var date = data.getDate()
+	  data = year + '-' + month + '-' + date
+	  return data
   }
 })
+
+

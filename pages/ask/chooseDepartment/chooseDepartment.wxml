@@ -18,8 +18,8 @@
 <view class="VerticalBox">
   <!-- 左边的选择框 -->
   <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh)">
-    <view class="cu-item {{item.name==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-target="{{item}}">
-      {{item.name}}
+    <view class="cu-item {{item.name==TabCur?'text-green cur':''}}" wx:for="{{department_list}}" wx:key bindtap='tabSelect' data-target="{{item}}">
+      {{item.department_name}}
     </view>
   </scroll-view>
   
@@ -31,10 +31,10 @@
           <text class='cuIcon-title text-green'></text> {{title}} </view>
 		</view>
       <view class="cu-list menu">
-        <view class="cu-item" wx:for="{{list2}}" bindtap="tabDepartment">
+        <view class="cu-item" wx:for="{{office_list}}" bindtap="tabDepartment" data-target="{{item}}">
           <view class="content" style="width: 400rpx;">
             <view>
-              <text class="text-cut">瓦罗兰大陆-睡衣守阿斯顿撒打得撒大声地啊护者-新手保护营</text>
+              <text class="text-cut">{{item.office_name}}</text>
             </view>
           </view>
         </view>
