@@ -104,8 +104,7 @@ Component({
 		
 	},
 	
-	onReachBottom(){
-		console.log('到底啦')
-	}
+	
+
   }
 });

@@ -31,7 +31,7 @@
 	</view>
 	<view class="item">
 		<view class="title">就诊时间</view>
-		<view class="content">{{list.register_date}} ({{list.register_day}}) {{list.register_time}}</view>
+		<view class="content">{{list.test_date}} ({{list.test_day}})</view>
 	</view>
 	<view class="item">
 		<view class="title">预约人</view>

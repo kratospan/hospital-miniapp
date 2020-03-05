@@ -1,6 +1,6 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
 	<view slot="backText">返回</view>
-	<view slot="content">挂号预约</view>
+	<view slot="content">科室</view>
 </cu-custom>
 
 <view class="hospital bg-white flex padding-sm">
@@ -17,19 +17,19 @@
 
 <view class="VerticalBox">
   <!-- 左边的选择框 -->
-  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh)">
-    <view class="cu-item {{item.name==TabCur?'text-green cur':''}}" wx:for="{{department_list}}" wx:key bindtap='tabSelect' data-target="{{item}}">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh -130rpx)">
+    <view class="cu-item {{item.department_name==TabCur?'text-green cur':''}}" wx:for="{{department_list}}" wx:key bindtap='tabSelect' data-target="{{item}}">
       {{item.department_name}}
     </view>
   </scroll-view>
   
   <!-- 右边的提示框 -->
-  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh)" scroll-into-view="main-{{MainCur}}" >
-    <view class="padding-top padding-lr"  wx:key id="main-{{index}}">
-      <view class='cu-bar solid-bottom bg-white'>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 340rpx)" scroll-into-view="main-{{MainCur}}" >
+    <view class=" padding-lr"  wx:key id="main-{{index}}">
+      <!-- <view class='cu-bar solid-bottom bg-white'>
         <view class='action'>
           <text class='cuIcon-title text-green'></text> {{title}} </view>
-		</view>
+		</view> -->
       <view class="cu-list menu">
         <view class="cu-item" wx:for="{{office_list}}" bindtap="tabDepartment" data-target="{{item}}">
           <view class="content" style="width: 400rpx;">

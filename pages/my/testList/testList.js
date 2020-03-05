@@ -6,7 +6,9 @@ Page({
     Custom: app.globalData.Custom,
 	patient_list : [],
 	has_choose : [],
-	testlist : []
+	testlist : [],
+	page : 1,
+	stop : false
   },
   onLoad() {
     this.setData({
@@ -23,8 +25,11 @@ Page({
   },
   
   choosePatient(e){
+	  var list = []
   	this.setData({
-  	  has_choose : e.currentTarget.dataset.target
+  	  has_choose : e.currentTarget.dataset.target,
+	  page : 1,
+	  testlist : list
   	})
 	this.selectTestList()
   	this.hideModal()
@@ -52,6 +57,7 @@ Page({
   		  data : data
   	  }).then(function(res){
   		  if(res.code == 200){
+			   
 			  wx.hideLoading()
   			  that.setData({
   				  patient_list : res.data
@@ -74,14 +80,32 @@ Page({
 	  app.gRequest({
 	  	  url : 'test/select_test',
 	  	  data : {
-			  patient_id : that.data.has_choose.patient_id
+			  patient_id : that.data.has_choose.patient_id,
+			  page : that.data.page
 		  }
 	  }).then(function(res){
+		  wx.hideLoading()
 	  	  if(res.code == 200){
-	  	  	 wx.hideLoading()
-	  	  	 that.setData({
-	  	  	  testList : res.data
-	  	  	 })
+			  res.num = res.num + 1
+	  	  	 if(res.num != 0){
+	  	  	 	var testlist = that.data.testlist
+	  	  	 	for(let i = 0; i < res.num - 1; i++){
+	  	  	 			testlist.push(res.data[i])
+	  	  	 	}
+	  	  	   that.setData({
+	  	  	 		testlist : testlist,
+	  	  	 					page : that.data.page + 1
+	  	  	 				})
+	  	  	 	if(that.data.page > 1 && res.num < 10){
+	  	  	 		that.setData({
+	  	  	 			stop : true
+	  	  	 		})
+	  	  	 	}
+	  	  	 }else{
+	  	  	 				  that.setData({
+	  	  	 				  	stop : true
+	  	  	 				  })
+	  	  	 }
 	  	  }else{
 	  	  	 wx.hideLoading()
 	  	  	 app.showModal(res.msg)
@@ -95,5 +119,11 @@ Page({
 	  wx.navigateTo({
 		  url : '/pages/my/testMore/testMore?test_id=' + test_id
 	  })
+  },
+  
+  onReachBottom(){
+  	  if(!this.data.stop){
+  		  this.selectTestList()
+  	  }
   }
 })

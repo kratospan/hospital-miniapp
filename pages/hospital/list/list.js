@@ -4,7 +4,9 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
-	doctor : []
+	doctor : [],
+	page : 1,
+	stop : false
   },
   onLoad(options) {
     this.setData({
@@ -35,17 +37,40 @@ Page({
 	  app.gRequest({
 		  url : 'doctor/select_doctor_list',
 		  data : {
-			  office_id : this.data.office_id
+			  office_id : this.data.office_id,
+			  page : that.data.page
 		  }
 	  }).then(function(res){
 		  wx.hideLoading()
 		  if(res.code == 200){
-			  that.setData({
-				  doctor : res.data
-			  })
+			  if(res.num != 0){
+				  res.num = res.num + 1
+				  var doctor = that.data.doctor
+				  for(let i = 0; i < res.num - 1; i++){
+				  		doctor.push(res.data[i])
+				  }
+				  that.setData({
+				  	doctor : doctor,
+					page : that.data.page + 1
+				  })
+				  if(that.data.page > 1 && res.num < 10){
+				  	that.setData({
+				  		stop : true
+				  	})
+				  }
+			  }else{
+				  
+			  }
 		  }else{
 			  app.showModal(res.msg)
 		  }
 	  })
+  },
+  
+  onReachBottom(){
+	  // console.log('我到底了')
+	  if(!this.data.stop){
+		  this.selectDorctList()
+	  }
   }
 })

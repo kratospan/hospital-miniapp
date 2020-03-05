@@ -76,7 +76,8 @@ Page({
 		  if(res.code == 200){
 			  that.setData({
 				  department_list : res.data,
-				  has_choose : res.data[0]
+				  has_choose : res.data[0],
+				  TabCur : res.data[0].department_name
 			  })
 			  that.selectOffice();
 		  }else{

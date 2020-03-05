@@ -1,9 +1,5 @@
-<!-- <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-	<view slot="backText">返回</view>
-	<view slot="content">预约结果</view>
-</cu-custom> -->
 
-<cu-custom bgColor="bg-gradual-blue" isHome="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isHome="{{true}}">
 	<view slot="content">预约结果</view>
 </cu-custom>
 

@@ -1,5 +1,6 @@
 {
   "pages": [
+	"pages/login/login",
     "pages/index/index",
     "pages/basics/home/home",
     "pages/basics/layout/layout",
@@ -57,8 +58,7 @@
     "pages/my/editPatient/editPatient",
     "pages/my/about/about",
     "pages/my/testList/testList",
-    "pages/my/testMore/testMore",
-    "pages/login/login"
+    "pages/my/testMore/testMore"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

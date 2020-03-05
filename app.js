@@ -103,7 +103,7 @@ App({
   	console.log('我是一个全局的方法')
   },
   
-  showModal(title,duration=1500,icon = 'none',){
+  showModal(title,icon = 'none',duration=1500,){
 	wx.showToast({
 		title : title,
 		icon : icon,
@@ -112,7 +112,8 @@ App({
   },
   
   gRequest(data){
-	return new Promise(function (resolve,reject){
+	var that = this
+	return  new Promise(function (resolve,reject){
 		wx.request({
 		   url: 'http://www.tp5.com/index.php/api/' + data['url'], //仅为示例，并非真实的接口地址
 		   data: data['data'],
@@ -121,11 +122,22 @@ App({
 		     'content-type': 'application/json' // 默认值
 		   },
 		   success (res) {
-			   // console.log(res.data)
-			   resolve(res.data)
+			   var data = res.data
+			   if(data.code == 101){
+				   that.showModal(data.msg)
+				   setTimeout(function(){
+					   wx.reLaunch({
+							url : '/pages/login/login'
+					   })
+				   },1900)
+				   return
+			   }
+			   resolve(data)
 		   }
 		})
 	})
+	
+	
   },
   
   gGetStorage(name){

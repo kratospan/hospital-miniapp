@@ -5,7 +5,9 @@ Page({
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
 	tagList : ['职场精英','均衡检查'],
-	mealList : []
+	mealList : [],
+	page : 1,
+	stop : false
   },
   onLoad() {
     this.selectMealList()
@@ -26,17 +28,38 @@ Page({
 	  app.gRequest({
 		  url : 'meal/select_meal',
 		  data : {
-			  
+			  page : that.data.page
 		  }
 	  }).then(function(res){
 		  wx.hideLoading()
 		  if(res.code == 200){
-			  that.setData({
-				  mealList : res.data
-			  })
+			  if(res.num != 0){
+				 res.num = res.num + 1
+			  	var mealList = that.data.mealList
+			  	for(let i = 0; i < res.num - 1; i++){
+			  			mealList.push(res.data[i])
+			  	}
+			    that.setData({
+			  		mealList : mealList,
+					page : that.data.page + 1
+				})
+			  	if(that.data.page > 1 && res.num < 10){
+			  		that.setData({
+			  			stop : true
+			  		})
+			  	}
+			  }else{
+			  				  
+			  }
 		  }else{
 			  app.showModal(res.msg)
 		  }
 	  })
+  },
+  
+  onReachBottom(){
+  	  if(!this.data.stop){
+  		  this.selectMealList()
+  	  }
   }
 })

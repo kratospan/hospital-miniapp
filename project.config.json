@@ -92,10 +92,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "套餐详情",
 					"pathName": "pages/ask/testMore/testMore",
-					"query": "",
+					"query": "meal_id=11",
 					"scene": null
 				},
 				{
@@ -194,6 +194,12 @@
 					"name": "挂号详情",
 					"pathName": "pages/my/registerMore/registerMore",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
 					"scene": null
 				}
 			]

@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">体检列表</view>
 </cu-custom>
@@ -40,6 +40,6 @@
 	</view>
 </view>
 
-<view class="text-grey" style="text-align: center; margin-top: 65rpx;" wx:if="{{testList == ''}}">
+<view class="text-grey padding-bottom padding-top" style="text-align: center;" wx:if="{{testList == ''|| stop == true}}">
 	已无更多记录
 </view>

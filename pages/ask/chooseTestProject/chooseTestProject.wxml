@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">体检套餐列表</view>
 </cu-custom>
@@ -14,8 +14,11 @@
   <view class="cu-item shadow">
     <view class="cu-list menu-avatar comment solids-top">
       <view class="cu-item solid-bottom" wx:for="{{mealList}}" wx:key bindtap="toJump" data-target="{{item}}">
-        <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-        <view class="content">
+        <!-- <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view> -->
+        <image class="cu-avatar bg-white" src="../../../images/女生.png" wx:if="{{item.meal_sex == 0}}"></image>
+		<image class="cu-avatar bg-white" src="../../../images/男生.png" wx:if="{{item.meal_sex == 1}}"></image>
+		<image class="cu-avatar bg-white" src="../../../images/男女.png" wx:if="{{item.meal_sex == 2}}"></image>
+		<view class="content">
           <view class="text-grey text-lg">{{item.meal_name}}</view>
 		  <view class="tag-list" style="margin: 5rpx;">
 			<view class="cu-tag bg-green light" wx:for="{{tagList}}" wx:key>{{item}}</view>
@@ -31,3 +34,7 @@
   </view>
 </view>
 </view>
+
+ <view  class="text-grey padding" style="text-align: center;" wx:if="{{mealList == '' || stop == true}}">
+  		  已无更多信息
+  </view>

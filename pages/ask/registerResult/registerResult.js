@@ -54,7 +54,13 @@ Page({
   
   toRigisterMore(){
 	  wx.navigateTo({
-		  url : '/pages/my/registerMore/registerMore'
+		  url : '/pages/my/registerMore/registerMore?register_id=' + this.data.list.register_id
 	  })
+  },
+  
+  toTestMore(){
+  	  wx.navigateTo({
+  		  url : '/pages/my/testMore/testMore?test_id=' + this.data.list.test_id
+  	  })
   }
 })

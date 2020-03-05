@@ -6,7 +6,9 @@ Page({
     Custom: app.globalData.Custom,
 	list : [],
 	patient_list : [],
-	has_choose : []
+	has_choose : [],
+	stop : false,
+	page : 1
   },
   onLoad() {
 	this.setData({
@@ -22,8 +24,11 @@ Page({
 	this.selectPatientList()  
   },
   choosePatient(e){
+	  var rlist = []
   	this.setData({
-  	  has_choose: e.currentTarget.dataset.target
+  	  has_choose: e.currentTarget.dataset.target,
+	  page : 1,
+	  list : rlist
   	})
 	this.select_register()
   	this.hideModal()
@@ -50,16 +55,18 @@ Page({
 		  url : 'patient/select_patient_list',
 		  data : data
 	  }).then(function(res){
+		  wx.hideLoading()
 		  if(res.code == 200){
-			  that.setData({
-				  patient_list : res.data
-			  })
-			  that.setData({
-				  has_choose : res.data[0]
-			  })
-			  that.select_register()
+			 
+			  if(res.num != 0){
+				  that.setData({
+				  	patient_list : res.data,
+				  	has_choose : res.data[0]
+				  })
+				  that.select_register()
+			  }
 		  }else{
-			  wx.hideLoading()
+			  
 			  app.showModal(res.msg)
 		  }
 	  })
@@ -71,7 +78,8 @@ Page({
 	  // var patient_id = this.data.has_Choose.patient_id
 	  var that = this 
 	  var data = {
-		  'patient_id' : this.data.has_choose.patient_id
+		  'patient_id' : this.data.has_choose.patient_id,
+		  'page' : that.data.page
 	  }
 	  app.gRequest({
 		  url : 'register/select_register',
@@ -79,12 +87,29 @@ Page({
 	  }).then(function(res){
 		  wx.hideLoading()
 		  if(res.code == 200){
-			  that.setData({
-				  list : res.data
-			  })
-		  }else{
-			  app.showModal(res.msg)
-		  }
+			   res.num = res.num + 1
+			  if(res.num != 0){
+			  	var list = that.data.list
+			  	for(let i = 0; i < res.num - 1; i++){
+			  			list.push(res.data[i])
+			  	}
+			    that.setData({
+			  		list : list,
+			  					page : that.data.page + 1
+			  				})
+			  	if(that.data.page > 1 && res.num < 10){
+			  		that.setData({
+			  			stop : true
+			  		})
+			  	}
+			  }else{
+			  	that.setData({
+			  		stop : true
+			  	}) 
+			  }
+		}else{
+			app.showModal(res.msg)
+		}
 	  })
   },
   
@@ -94,5 +119,11 @@ Page({
   	  wx.navigateTo({
   		  url : '/pages/my/registerMore/registerMore?register_id=' + register_id
   	  })
+  },
+  
+  onReachBottom(){
+  	  if(!this.data.stop){
+  		  this.select_register()
+  	  }
   }
 })

@@ -1,17 +1,17 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">医生列表</view>
 </cu-custom>
 
 <view class="text-center text-lg bg-white" wx:if="{{doctor.num}}" >{{department}}共有{{num}}名医生</view>
 
-<view class="cu-list menu-avatar margin-top">
+<view class="cu-list menu-avatar margin-bottom">
     <view class="cu-item" wx:for="{{doctor}}" bindtap="toJump" data-target="{{item}}">
       <!-- <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view> -->
       <image src="../../../images/男医生.png" class="cu-avatar bg-white lg" wx:if="{{item.doctor_sex == 1}}"></image>
 	  <image src="../../../images/女医生.png" class="cu-avatar bg-white lg" wx:if="{{item.doctor_sex == 0}}"></image>
 	  <view class="content">
-        <view class="text-pink">
+        <view class="">
           <text class="text-cut">{{item.doctor_name}}</text>·
 		  [<text class="">{{item.doctor_title}}</text>]
         </view>
@@ -22,6 +22,8 @@
     </view>
   </view>
   
-  <view class="text-grey" style="text-align: center; margin-top: 65rpx;" wx:if="{{doctor == ''}}">
+  <!-- <view wx:if="{{stop}}" class="text-sm text-grey text-center padding-bottom"> 已经到底了 </view> -->
+  
+  <view  class="text-grey padding" style="text-align: center;" wx:if="{{doctor == '' || stop == true}}">
   		  已无更多信息
   </view>

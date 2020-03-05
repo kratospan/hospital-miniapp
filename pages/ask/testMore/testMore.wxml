@@ -1,10 +1,12 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">体检套餐详情</view>
 </cu-custom>
 
 <view class="information bg-white">
-	<view class="logo"></view>
+		<image style="height: 120rpx; width: 120rpx;"   class="bg-white" src="../../../images/女生.png" wx:if="{{meal_more.meal_sex == 0}}"></image>
+		<image style="height: 120rpx; width: 120rpx;"  class="bg-white" src="../../../images/男生.png" wx:if="{{meal_more.meal_sex == 1}}"></image>
+		<image style="height: 120rpx; width: 120rpx;"   class="bg-white" src="../../../images/男女.png" wx:if="{{meal_more.meal_sex == 2}}"></image>
 	<view class="left">
 		<view class="title text-lg">{{meal_more.meal_name}}</view>
 		<view class="tag">
@@ -70,7 +72,7 @@
 		monthCount = '2'
 		dateTitle = ''
 		dateSubTitle = '预约'
-		themeColor = '#0081ff'
+		themeColor = '#39b54a'
 	/>
 
 <scroll-view scroll-x class="bg-white nav margin-top">

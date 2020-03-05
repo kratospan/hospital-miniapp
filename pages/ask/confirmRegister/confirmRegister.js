@@ -12,9 +12,6 @@ Page({
   
   onLoad(options){
 	  var data = JSON.parse(options.data)
-	  console.log(data)
-	  // 上午：8点-9点 9点-10点 10点-11点
-	  // 下午：2点-3点 3点-4点 4点-5点
 	  var array = [
 		  '08:00-09:00',
 		  '09:00-10:00',
@@ -30,7 +27,8 @@ Page({
 		  has_choose : data.has_choose,
 		  user_id : app.gGetStorage('userInfo').user_id,
 		  registerDate : app.gTimeToDate(data.has_choose.dateTime),
-		  register_date : data.has_choose.dateTime
+		  register_date : data.has_choose.dateTime,
+		  user_id : app.gGetStorage('userInfo').user_id
 	  })
   },
   
@@ -73,7 +71,8 @@ Page({
 	  		doctor_id : that.data.doctor_id,
 			patient_id : that.data.has_choose_patient.patient_id,
 			register_date : that.data.register_date,
-			register_time : that.data.schedul_time2
+			register_time : that.data.schedul_time2,
+			user_id : this.data.user_id
 	  	}
 	  }).then(function(res){
 	  		  wx.hideLoading()

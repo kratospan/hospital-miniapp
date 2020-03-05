@@ -1,9 +1,9 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">挂号记录</view>
 </cu-custom>
 
-<view class="choose padding bg-white">
+<view class="choose padding bg-white" wx:if="{{patient_list != ''}}">
 	<text class="text-lg" style="font-weight: 600;">{{has_choose.patient_name}}</text>
 	<text class="cu-tag text-green" bindtap="showModal" value="{{index}}" data-target="bottomModal">切换就诊人</text>
 </view>
@@ -42,6 +42,6 @@
 	</view>
 </view>
 
-<view class="text-grey" style="text-align: center; margin-top: 65rpx;" wx:if="{{list == ''}}">
+<view class="text-grey padding-bottom padding-top" style="text-align: center;" wx:if="{{list == '' || stop == true}}">
 		  已无更多记录
-	  </view>
+</view>
