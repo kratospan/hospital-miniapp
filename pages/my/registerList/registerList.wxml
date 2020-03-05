@@ -21,7 +21,7 @@
 </view>
 
 <view class="cu-list">
-	<view class="cu-item margin-top bg-white" wx:for="{{list}}">
+	<view class="cu-item margin-top bg-white" wx:for="{{list}}" bindtap="toJump" data-target="{{item}}">
 		<view class="time solid-bottom padding" style="font-weight: 600;">
 			就诊时间: <text style="margin-left:10rpx;">{{item.register_date}} </text>
 			<text style="margin-left:10rpx;">({{item.register_day}})</text>
@@ -34,9 +34,9 @@
 			<view style="margin-top:15rpx;">就诊人:{{item.patient_name}}</view>
 			<view class="text-right text-lg" style="font-wight；">￥{{item.doctor_payment}}</view>
 		</view>
-		<view class="padding text-lg text-right">
+	<!-- 	<view class="padding text-lg text-right">
 			<text style="border: 1px solid grey; padding:15rpx;">取消预约</text>
-		</view>
+		</view> -->
 		
 		<!-- <view class="line"></view> -->
 	</view>

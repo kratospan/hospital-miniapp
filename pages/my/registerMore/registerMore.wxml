@@ -1,4 +1,67 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
 	<view slot="backText">返回</view>
-	<view slot="content">体检套餐列表</view>
+	<view slot="content">预约详情</view>
 </cu-custom>
+
+<view class="bg-gradual-green">
+	<view class="text-xl text-white padding-right padding-left padding-top">{{list.register_status}}</view>
+	<view class="other-tips padding">
+		挂号当天提前<text class="text-red">30分钟</text>到达医院凭就诊人身份证现场取号
+	</view>
+</view>
+
+<view class="item text-xl padding bg-white">
+		<view class="title ">预约流水号</view>
+		<view class="content" style="margin-left: 60rpx;">{{list.register_id}}213</view>
+</view>
+
+<!-- 显示医院的地图 (有时间的话就弄) -->
+<view class="address">
+	
+</view>
+
+<view class="text-xl bg-white margin-top-lg padding">
+	<view class="item">
+		<view class="title">就诊医院</view>
+		<view class="content">佛山市第一人民医院</view>
+	</view>
+	<view class="item">
+		<view class="title">就诊科室</view>
+		<view class="content">{{list.office_name}}</view>
+	</view>
+	<view class="item">
+		<view class="title">就诊医生</view>
+		<view class="content">{{list.doctor_name}}[{{list.doctor_title}}]</view>
+	</view>
+	<view class="item">
+		<view class="title">就诊时间</view>
+		<view class="content">{{list.register_date}} ({{list.register_day}}) {{list.register_time}}</view>
+	</view>
+	<view class="item">
+		<view class="title">预约人</view>
+		<view class="content" style="margin-left: 60rpx;">{{list.patient_name}}</view>
+	</view>
+</view>
+	
+			
+<!-- <view class="text-sm to-more margin" bindtap="toRigisterMore">
+	查看订单详情 <text class="">></text>
+</view>	 -->
+
+<view class="padding">
+	<view class="bg-olive light padding text-black">
+		<view class="title text-black" style="font-weight: 600;">重要提示:</view>
+		<view class="content text-black text-sm">1、根据医院规定，就诊当天可能无法取消预约。建议不要在就诊当天取消预约，如需取消请至少提前一天。累计取消或三次爽约可能会被列入医院黑名单，请如需预约</view>
+	</view>
+</view>
+
+<view class="padding text-sm text-grey text-center">
+	本次预约服务由大象医疗提供技术支持
+</view>
+
+<view class="text-center padding margin-top-lg"> </view>
+
+
+<view class="bg-white text-center padding text-green text-lg margin-top" wx:if="{{list.register_status == '预约成功'}}" bindtap="cancelRegister">
+	取消预约
+</view>

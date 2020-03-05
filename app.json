@@ -69,7 +69,7 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },
-  "sitemapLocation": "sitemap1.json",
+  "sitemapLocation": "sitemap.json",
   "plugins": {
     "myPlugin": {
       "version": "2.1.3",

@@ -29,7 +29,7 @@
 }
 
 .more-text {
-	border: 1px solid green;
+	/* border: 1px solid green; */
 	/* margin: 25prx 25rpx 25rpx 25rpx; */
 	margin: 0 25rpx;
 	margin-bottom: 25rpx;

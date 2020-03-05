@@ -24,9 +24,17 @@ Component({
       })
     },
 	toJump(e){
-		wx.navigateTo({
-			url : '/pages/my/registerMore/registerMore'
-		})
+		var data = e.currentTarget.dataset.target
+		var notice_type = data.notice_type
+		if(notice_type == 0){
+			wx.navigateTo({
+				url : '/pages/my/registerMore/registerMore?register_id=' + data.register_id
+			})
+		}else{
+			wx.navigateTo({
+				url : '/pages/my/testMore/testMore?test_id=' + data.test_id
+			})
+		}
 	},
 	
 	//封装一个组件用的request方法

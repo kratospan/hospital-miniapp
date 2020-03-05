@@ -188,6 +188,13 @@
 					"pathName": "pages/my/testMore/testMore",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "挂号详情",
+					"pathName": "pages/my/registerMore/registerMore",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

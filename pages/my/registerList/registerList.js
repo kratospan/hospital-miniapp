@@ -12,11 +12,14 @@ Page({
 	this.setData({
 		user_id : app.gGetStorage('userInfo').user_id
 	})
-    this.selectPatientList()
-	// this.select_register()
+    
   },
   onReady() {
     
+  },
+  
+  onShow(){
+	this.selectPatientList()  
   },
   choosePatient(e){
   	this.setData({
@@ -83,5 +86,13 @@ Page({
 			  app.showModal(res.msg)
 		  }
 	  })
+  },
+  
+  //跳转到详情页
+  toJump(e){
+  	  var register_id = e.currentTarget.dataset.target.register_id
+  	  wx.navigateTo({
+  		  url : '/pages/my/registerMore/registerMore?register_id=' + register_id
+  	  })
   }
 })

@@ -12,11 +12,16 @@ Page({
     this.setData({
 		user_id : app.gGetStorage('userInfo').user_id
 	})
-	this.selectPatientList()
+	
   },
   onReady() {
     
   },
+  
+  onShow(){
+	  this.selectPatientList()
+  },
+  
   choosePatient(e){
   	this.setData({
   	  has_choose : e.currentTarget.dataset.target
@@ -83,4 +88,12 @@ Page({
 	  	  }
 	  })
   },
+  
+  //跳转到详情页
+  toJump(e){
+	  var test_id = e.currentTarget.dataset.target.test_id
+	  wx.navigateTo({
+		  url : '/pages/my/testMore/testMore?test_id=' + test_id
+	  })
+  }
 })
