@@ -28,7 +28,8 @@ Page({
 	  app.gRequest({
 		  url : 'meal/select_meal',
 		  data : {
-			  page : that.data.page
+			  page : that.data.page,
+			  token : app.getToken()
 		  }
 	  }).then(function(res){
 		  wx.hideLoading()

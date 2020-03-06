@@ -75,11 +75,13 @@ Page({
   selectPatient(){
 	  var that = this
 	  var data = {
-		  'patient_id' : that.data.patient_id
+		  'patient_id' : that.data.patient_id,
+		  'token' : app.getToken()
 	  }
 	  app.gRequest({
 		  url : 'patient/select_patient',
-		  data : data
+		  data : data,
+		  
 	  }).then(function(res){
 		  if(res.code == 200){
 			  that.setData({
@@ -110,7 +112,8 @@ Page({
 		  'patient_birth' : this.data.birth,
 		  'patient_relationship' : this.data.relation,
 		  'patient_id' : this.data.patient_id,
-		  'user_id' : user_id
+		  'user_id' : user_id,
+		  'token' : app.getToken()
 	  }
 	  
 	  app.gRequest({

@@ -150,12 +150,14 @@ Page({
 		  'patient_birth' : this.data.date,
 		  'patient_phone' : this.data.phone,
 		  'patient_relationship' : this.data.relation,
-		  'user_id' : user_id
+		  'user_id' : user_id,
+		  'token' : app.getToken()
 	  }
 	  wx.showLoading()
 	  app.gRequest({
 		  url : 'patient/add_patient',
-		  data : data
+		  data : data,
+		  
 	  }).then(function(res){
 		  if(res.code == 200){
 			  wx.hideLoading()

@@ -21,7 +21,8 @@ Page({
   	  app.gRequest({
   	  		  url : 'register/select_register_more',
   	  		  data : {
-				 register_id :  that.data.register_id
+				 register_id :  that.data.register_id,
+				 token : app.getToken()
 			  }
   	  }).then(function(res){
   	  		  wx.hideLoading()
@@ -43,7 +44,8 @@ Page({
 	  		  url : 'register/cancel_register',
 	  		  data : {
 				  register_id : that.data.register_id,
-				  user_id : that.data.user_id
+				  user_id : that.data.user_id,
+				  token : app.getToken()
 			  }
 	  }).then(function(res){
 	  		  wx.hideLoading()

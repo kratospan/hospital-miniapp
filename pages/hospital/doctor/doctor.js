@@ -24,7 +24,8 @@ Page({
 	  app.gRequest({
 		  url : 'doctor/select_doctor',
 		  data : {
-			  doctor_id : that.data.doctor_id
+			  doctor_id : that.data.doctor_id,
+			  token : app.getToken()
 		  }
 	  }).then(function(res){
 		  wx.hideLoading()

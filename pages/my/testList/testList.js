@@ -50,11 +50,13 @@ Page({
   	  var that = this
   	  wx.showLoading()
   	  var data = {
-  		  user_id : this.data.user_id
+			user_id : this.data.user_id,
+			token : app.getToken()
   	  }
   	  app.gRequest({
   		  url : 'patient/select_patient_list',
-  		  data : data
+			data : data,
+			
   	  }).then(function(res){
   		  if(res.code == 200){
 			   
@@ -81,7 +83,8 @@ Page({
 	  	  url : 'test/select_test',
 	  	  data : {
 			  patient_id : that.data.has_choose.patient_id,
-			  page : that.data.page
+			  page : that.data.page,
+			  token : app.getToken()
 		  }
 	  }).then(function(res){
 		  wx.hideLoading()

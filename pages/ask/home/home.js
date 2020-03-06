@@ -1,4 +1,4 @@
-// var app = getApp()
+var app = getApp()
 Component({
   
   options: {
@@ -25,9 +25,6 @@ Component({
 	},{
 		title : '体检报告查询',
 		icon : 'form',
-	},{
-		title : '缴费记录',
-		icon : 'refund',
 	}]
   },
   methods : {
@@ -36,7 +33,8 @@ Component({
       wx.request({
         url: 'http://www.tp5.com/index.php/api/patient/select_patient', //仅为示例，并非真实的接口地址
         data: {
-          'patient_id': 10,
+		  'patient_id': 10,
+		  'token' : app.getToken()
         },
 		method : 'POST',
         header: {
@@ -72,7 +70,7 @@ Component({
 	  },
 	  toJump(e){
 		  // console.log(e)
-      this.toLink()
+    //   this.toLink()
 		var title = e.currentTarget.dataset.target.title
 		if(title == '添加就诊人'){
 			wx.navigateTo({

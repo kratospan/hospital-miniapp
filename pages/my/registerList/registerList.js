@@ -48,12 +48,12 @@ Page({
   selectPatientList(){
 	  var that = this
 	  wx.showLoading()
-	  var data = {
-		  user_id : this.data.user_id
-	  }
 	  app.gRequest({
 		  url : 'patient/select_patient_list',
-		  data : data
+		  data : {
+			user_id : this.data.user_id,
+			token : app.getToken()
+		  }
 	  }).then(function(res){
 		  wx.hideLoading()
 		  if(res.code == 200){
@@ -79,11 +79,13 @@ Page({
 	  var that = this 
 	  var data = {
 		  'patient_id' : this.data.has_choose.patient_id,
-		  'page' : that.data.page
+		  'page' : that.data.page,
+			'token' : app.getToken()
 	  }
 	  app.gRequest({
 		  url : 'register/select_register',
-		  data : data
+		  data : data,
+		  
 	  }).then(function(res){
 		  wx.hideLoading()
 		  if(res.code == 200){

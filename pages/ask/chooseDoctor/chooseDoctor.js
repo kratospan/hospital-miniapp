@@ -30,7 +30,8 @@ Page({
 	  		  url : 'schedul/select_schedul_miniapp',
 	  		  data : {
 	  			  office_id : that.data.office_id,
-	  			  schedul_date : that.data.has_choose.dateTime
+					schedul_date : that.data.has_choose.dateTime,
+					token : app.getToken()
 	  		  }
 	  }).then(function(res){
 	  		  wx.hideLoading()

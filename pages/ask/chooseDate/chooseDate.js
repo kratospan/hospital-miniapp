@@ -35,7 +35,8 @@ Page({
 		  var data = {
 			  doctor_id : this.data.doctor_id,
 			  schedul_time : e.currentTarget.dataset.index,
-			  has_choose : this.data.has_choose
+			  has_choose : this.data.has_choose,
+			  
 		  }
 		  
 		  data = JSON.stringify(data)
@@ -61,7 +62,8 @@ Page({
   	  		  url : 'schedul/select_schedul_miniapp',
   	  		  data : {
   	  			  doctor_id : that.data.doctor_id,
-  	  			  schedul_date : that.data.has_choose.dateTime
+					  schedul_date : that.data.has_choose.dateTime,
+					  token : app.getToken()
   	  		  }
   	  }).then(function(res){
   	  		  wx.hideLoading()
@@ -120,7 +122,8 @@ Page({
 	  app.gRequest({
 	  		  url : 'doctor/select_doctor',
 	  		  data : {
-	  			  doctor_id : that.data.doctor_id,
+					doctor_id : that.data.doctor_id,
+					token : app.getToken()
 	  		  }
 	  }).then(function(res){
 	  		  wx.hideLoading()

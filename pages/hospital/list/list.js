@@ -38,7 +38,8 @@ Page({
 		  url : 'doctor/select_doctor_list',
 		  data : {
 			  office_id : this.data.office_id,
-			  page : that.data.page
+			  page : that.data.page,
+			  token : app.getToken()
 		  }
 	  }).then(function(res){
 		  wx.hideLoading()

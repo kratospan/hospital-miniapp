@@ -68,6 +68,7 @@ Component({
 		    // Do something when catch error
 		  }
 	},
+
 	
 	selectNotice(){
 		var that = this
@@ -76,7 +77,8 @@ Component({
 			url : 'notice/select_notice_list',
 			data : {
 				user_id : that.data.user_id,
-				page : that.data.page
+				page : that.data.page,
+				token : this.gGetStorage('userInfo').token
 			}
 		}).then(function(res){
 			wx.hideLoading()

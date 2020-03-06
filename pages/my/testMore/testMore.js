@@ -22,7 +22,8 @@ Page({
 	  app.gRequest({
 	  		  url : 'test/select_test_more',
 	  		  data : {
-				  test_id : that.data.test_id
+				  test_id : that.data.test_id,
+				  token : app.getToken()
 			  }
 	  }).then(function(res){
 	  		  wx.hideLoading()
@@ -44,7 +45,8 @@ Page({
   	  		  url : 'test/cancel_test',
   	  		  data : {
 				  test_id : that.data.test_id,
-				  user_id : that.data.user_id
+				  user_id : that.data.user_id,
+				  token : app.getToken()
 			  }
   	  }).then(function(res){
   	  		  wx.hideLoading()

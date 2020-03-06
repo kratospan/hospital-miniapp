@@ -22,7 +22,7 @@
 	</view>
 	<view class="cu-form-group">
 		<view class="title">手机号码</view>
-		<input bindinput="inputPhone" placeholder="输入框带标签" value="{{phone}}"></input>
+		<input bindinput="inputPhone" placeholder="请输入手机号" value="{{phone}}"></input>
 		<view class="cu-capsule radius">
 			<view class="cu-tag bg-blue">
 				+86
@@ -34,7 +34,7 @@
 	</view>
 	<view class="cu-form-group">
 		<view class="title">验证码</view>
-		<input placeholder="输入框带个按钮"></input>
+		<input placeholder="请输入验证码"></input>
 		<button class="cu-btn bg-green shadow">验证码</button>
 	</view>
 	<view class="cu-form-group">

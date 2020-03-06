@@ -36,7 +36,8 @@ Page({
 	  app.gRequest({
 		  url : 'patient/select_patient_list',
 		  data : {
-			  user_id : user_id
+			  user_id : user_id,
+			  token : app.getToken()
 		  }
 	  }).then(function(res){
 		  if(res.code == 200){

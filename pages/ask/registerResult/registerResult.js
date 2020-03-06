@@ -33,7 +33,7 @@ Page({
 		  var data = {'register_id': this.data.id}
 	  }else{
 		  var url = 'test/select_test_more'
-		  var data = {'test_id': this.data.id}
+		  var data = {'test_id': this.data.id,token : app.getToken()}
 	  }
 	  var that = this
 	  app.gRequest({

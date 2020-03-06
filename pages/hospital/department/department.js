@@ -23,7 +23,8 @@ Page({
 	  app.gRequest({
 		  url : 'office/select_office_more',
 		  data : {
-			  office_id : that.data.office_id
+			  office_id : that.data.office_id,
+			  token : app.getToken()
 		  }
 	  }).then(function(res){
 		  wx.hideLoading()

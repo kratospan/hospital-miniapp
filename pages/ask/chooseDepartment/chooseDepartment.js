@@ -14,11 +14,14 @@ Page({
 	has_choose : [],
     load: true,
 	title : '',
-	type : '' //分三个参数 doctor department register
+	type : '', //分三个参数 doctor department register
+	token : ''
   },
   onLoad(options) {
+	// console.log(app.getToken())
 	this.setData({
-		type : 'register'
+		type : 'register',
+		token : app.getToken()
 	})
 	if(options.type){
 		this.setData({
@@ -70,7 +73,9 @@ Page({
 	  wx.showLoading()
 	  app.gRequest({
 		  url : 'department/select_department',
-		  data : ''
+		  data : {
+			token : that.data.token
+		  }
 	  }).then(function(res){
 		  
 		  if(res.code == 200){
@@ -94,7 +99,8 @@ Page({
   	  app.gRequest({
   		  url : 'office/select_office',
   		  data : {
-			  department_id : that.data.has_choose.department_id
+			  department_id : that.data.has_choose.department_id,
+			  token : that.data.token
 		  }
   	  }).then(function(res){
   		  wx.hideLoading()

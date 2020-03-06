@@ -72,7 +72,8 @@ Page({
 			patient_id : that.data.has_choose_patient.patient_id,
 			register_date : that.data.register_date,
 			register_time : that.data.schedul_time2,
-			user_id : this.data.user_id
+			user_id : this.data.user_id,
+			token : app.getToken()
 	  	}
 	  }).then(function(res){
 	  		  wx.hideLoading()
@@ -94,7 +95,8 @@ Page({
 	  app.gRequest({
 	  		  url : 'patient/select_patient_list',
 	  		  data : {
-	  			  user_id : that.data.user_id
+					user_id : that.data.user_id,
+					token : app.getToken()
 	  		  }
 	  }).then(function(res){
 	  		  wx.hideLoading()
@@ -115,7 +117,8 @@ Page({
 	  app.gRequest({
 	  		  url : 'doctor/select_doctor',
 	  		  data : {
-	  			  doctor_id : that.data.doctor_id,
+					doctor_id : that.data.doctor_id,
+					token : app.getToken()
 	  		  }
 	  }).then(function(res){
 	  		  wx.hideLoading()

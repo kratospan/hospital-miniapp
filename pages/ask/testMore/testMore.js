@@ -68,7 +68,8 @@ Page({
 				  patient_id : that.data.has_choose.patient_id,
 				  test_status : 0,
 				  test_date : date,
-				  user_id : that.data.user_id
+				  user_id : that.data.user_id,
+				  token : app.getToken()
 	  		  }
 	  }).then(function(res){
 			  wx.hideLoading()
@@ -113,7 +114,8 @@ Page({
 	  app.gRequest({
 		  url : 'patient/select_patient_list',
 		  data : {
-			  user_id : that.data.user_id
+			  user_id : that.data.user_id,
+			  token : app.getToken()
 		  }
 	  }).then(function(res){
 		  if(res.code == 200){
@@ -134,7 +136,8 @@ Page({
 	  app.gRequest({
 	  		  url : 'meal/select_meal_more',
 	  		  data : {
-	  			  meal_id : that.data.meal_id
+					meal_id : that.data.meal_id,
+					token : app.getToken()
 	  		  }
 	  }).then(function(res){
 	  		  if(res.code == 200){
@@ -155,7 +158,8 @@ Page({
 	  app.gRequest({
 	  		  url : 'project/select_project',
 	  		  data : {
-	  			  meal_id : that.data.meal_id
+					meal_id : that.data.meal_id,
+					token : app.getToken()
 	  		  }
 	  }).then(function(res){
 	  		  wx.hideLoading()

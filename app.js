@@ -124,7 +124,8 @@ App({
 		   success (res) {
 			   var data = res.data
 			   if(data.code == 101){
-				   that.showModal(data.msg)
+           that.showModal('登录信息错误，请重新登录')
+           wx.clearStorage()
 				   setTimeout(function(){
 					   wx.reLaunch({
 							url : '/pages/login/login'
@@ -160,6 +161,19 @@ App({
 	  var date = data.getDate()
 	  data = year + '-' + month + '-' + date
 	  return data
+  },
+
+  getToken(){
+    try {
+	    var value = wx.getStorageSync('userInfo').token
+	    if (value) {
+			return value
+	    }else{
+			return false
+		}
+	  } catch (e) {
+	    // Do something when catch error
+	  }
   }
 })
 
