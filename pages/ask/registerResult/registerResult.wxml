@@ -58,7 +58,7 @@
 				<view class="content">体检中心</view>
 			</view>
 			
-			<view class="text-sm to-more margin" bindtap="toRigisterMore">
+			<view class="text-sm to-more margin" bindtap="toTestMore">
 				查看订单详情 <text class="">></text>
 			</view>
 		</block>

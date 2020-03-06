@@ -21,7 +21,7 @@
 </view>
 
 <view class="cu-list">
-	<view class="cu-item margin-top bg-white" wx:for="{{testList}}" bindtap="toJump" data-target="{{item}}">
+	<view class="cu-item margin-top bg-white" wx:for="{{testlist}}" bindtap="toJump" data-target="{{item}}">
 		<view class="time solid-bottom padding" style="font-weight: 600;">
 			预约时间: <text style="margin-left:10rpx;">{{item.test_date}} </text>
 			<!-- <text style="margin-left:10rpx;">({{item.time.test_week}})</text> -->
@@ -40,6 +40,6 @@
 	</view>
 </view>
 
-<view class="text-grey padding-bottom padding-top" style="text-align: center;" wx:if="{{testList == ''|| stop == true}}">
+<view class="text-grey padding-bottom padding-top" style="text-align: center;" wx:if="{{stop}}">
 	已无更多记录
 </view>

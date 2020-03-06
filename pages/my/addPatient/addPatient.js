@@ -160,7 +160,9 @@ Page({
 		  if(res.code == 200){
 			  wx.hideLoading()
 			  app.showModal(res.msg)
-			  
+			  setTimeout(function(){
+				  wx.navigateBack()
+			  },1500)
 		  }else{
 			  wx.hideLoading()
 			  app.showModal(res.msg)

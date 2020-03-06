@@ -7,10 +7,13 @@ Page({
 	list : []
   },
   onLoad() {
-    this.selectPatientList()
+    
   },
   onReady() {
     
+  },
+  onShow(){
+	  this.selectPatientList()
   },
   toAddPatient(){
 	  wx.navigateTo({

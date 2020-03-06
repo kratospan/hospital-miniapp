@@ -13,6 +13,6 @@
 	</view>
 </view>
 
-<view  wx:if="{{list.length < 6}}" bindtap="toAddPatient" class="add padding bg-white margin-top margin text-center text-lg" style="border-radius: 15rpx;">
+<view  wx:if="{{list.length < 5}}" bindtap="toAddPatient" class="add padding bg-white margin-top margin text-center text-lg" style="border-radius: 15rpx;">
 	添加就诊人
 </view>
