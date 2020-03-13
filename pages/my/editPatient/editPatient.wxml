@@ -34,8 +34,8 @@
 	</view>
 	<view class="cu-form-group">
 		<view class="title">验证码</view>
-		<input placeholder="请输入验证码"></input>
-		<button class="cu-btn bg-green shadow">验证码</button>
+		<input placeholder="请输入验证码" bindinput="inputCode"></input>
+		<button class="cu-btn bg-green shadow" bindtap="sendCode">{{countDown?num+'秒':'验证码'}}</button>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">与就诊人的关系</view>

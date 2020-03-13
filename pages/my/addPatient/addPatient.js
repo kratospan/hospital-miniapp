@@ -6,6 +6,8 @@ Page({
     Custom: app.globalData.Custom,
 	relationPicker : ['自己','父母','子女','夫妻','亲属','朋友'],
 	sexPicker : ['男','女'],
+	num : 60,
+	countDown : false
   },
   onLoad() {
     
@@ -125,7 +127,23 @@ Page({
 		})
 		return false
 	}
-	this.submit_add_patient()
+	if(this.checkCode()){
+		this.submit_add_patient()
+	}
+	var that = this
+	app.gRequest({
+		url : 'code/check_code',
+		data : {
+			code_phone : this.data.phone,
+			code_content : this.data.code
+		},	  
+	}).then(function(res){
+		if(res.code == 200){
+			that.submit_add_patient()
+		}else{
+			app.showModal(res.msg)
+		}
+	})
   },
   
   sendCode(){
@@ -290,5 +308,67 @@ Page({
 		result = true
 	}
 	return result
+  },
+  sendCode(){
+	var that = this
+	if(!this.data.countDown){
+		if(this.data.phone){
+			if(this.confirmPhone()){
+				app.gRequest({
+					url : 'code/send_code',
+					data : {
+						code_phone : this.data.phone
+					},	  
+				}).then(function(res){
+					if(res.code == 200){
+						wx.hideLoading()
+						app.showModal(res.msg)
+						that.countDown()
+						}else{
+							app.showModal(res.msg)
+						}
+				})
+			}else{
+				app.showModal('请填写正确的手机号码')
+			}
+		}else{
+			app.showModal('请填写手机号码')
+		}
+	}
+  },
+  
+  checkCode(){
+	  app.gRequest({
+	  	url : 'code/check_code',
+	  	data : {
+	  		code_phone : this.data.phone,
+			code_content : this.data.code
+	  	},	  
+	  }).then(function(res){
+	  	if(res.code == 200){
+			return true
+	  	}else{
+	  		app.showModal(res.msg)
+			return false
+	  	}
+	  })
+  },
+  
+  countDown(){
+	  var that = this
+	  setTimeout(function(){
+			if(that.data.num >0){
+				that.setData({
+					num : that.data.num - 1,
+					countDown : true
+				})
+				that.countDown()
+			}else{
+				that.setData({
+					countDown : false,
+					num : 60
+				})
+			}
+	  },1000)
   }
 })

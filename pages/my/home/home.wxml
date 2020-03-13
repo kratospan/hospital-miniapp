@@ -29,7 +29,7 @@
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/my/registerList/registerList" hover-class="none">
-        <image src="/images/logo.png" class="png" mode="aspectFit"></image>
+        <text class="cuIcon-list text-yellow"></text>
         <text class="text-grey">挂号记录</text>
       </navigator>
     </view>
