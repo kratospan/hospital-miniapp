@@ -36,6 +36,14 @@ Page({
 	  		  }
 	  })
   },
+
+  toTestResult(){
+	if(this.data.list.has_result == 1){
+		wx.navigateTo({
+		  url: '../testResult/testResult?test_id=' + this.data.list.test_id,
+		})
+	}
+  },
   
   //取消体检预约
   cancelTest(){

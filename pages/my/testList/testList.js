@@ -61,13 +61,15 @@ Page({
   		  if(res.code == 200){
 			   
 			  wx.hideLoading()
-  			  that.setData({
+  			  if(res.num != 0){
+				that.setData({
   				  patient_list : res.data
   			  })
   			  that.setData({
   				  has_choose : res.data[0]
   			  })
 			  that.selectTestList()
+				}
   		  }else{
   			  wx.hideLoading()
   			  app.showModal(res.msg)
@@ -93,7 +95,10 @@ Page({
 	  	  	 if(res.num != 0){
 	  	  	 	var testlist = that.data.testlist
 	  	  	 	for(let i = 0; i < res.num - 1; i++){
-	  	  	 			testlist.push(res.data[i])
+							 testlist.push(res.data[i])
+							 if(res.data[i]['has_result'] == 1){
+								 res.data[i]['test_status'] = '已出报告'
+							 }
 	  	  	 	}
 	  	  	   that.setData({
 	  	  	 		testlist : testlist,

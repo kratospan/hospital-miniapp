@@ -1,0 +1,11 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">体检报告</view>
+</cu-custom>
+
+
+<view id="result" class="text-center bg-white" >
+<view class="padding-top bg-white text-lg">您好！这是您的体检报告，请查阅</view>
+<image bindtap="toPreview" class="margin-top " src="{{currentImg}}" style="width:90%;height:1000rpx;border:2px solid blue"></image>
+</view>
+

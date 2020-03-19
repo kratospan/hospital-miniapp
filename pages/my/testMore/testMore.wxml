@@ -37,6 +37,12 @@
 		<view class="title">预约人</view>
 		<view class="content" style="margin-left: 60rpx;">{{list.patient_name}}</view>
 	</view>
+	
+</view>
+
+<view class="item text-xl padding bg-white margin-top-lg">
+		<view class="title">体检报告</view>
+		<view bindtap="toTestResult" class="content" style="margin-left: 60rpx;">{{list.has_result == 0?'未出报告':'已出报告(点击查看)'}}</view>
 </view>
 	
 			

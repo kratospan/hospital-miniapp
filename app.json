@@ -24,7 +24,8 @@
     "pages/my/editPatient/editPatient",
     "pages/my/about/about",
     "pages/my/testList/testList",
-    "pages/my/testMore/testMore"
+    "pages/my/testMore/testMore",
+    "pages/my/testResult/testResult"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
