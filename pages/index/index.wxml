@@ -28,3 +28,4 @@
     <view class="{{PageCur=='my'?'text-green':'text-gray'}}">我的</view>
   </view>
 </view>
+

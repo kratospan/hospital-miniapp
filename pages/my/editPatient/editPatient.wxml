@@ -3,6 +3,7 @@
 	<view slot="content">编辑就诊人</view>
 </cu-custom>
 
+
 <form>
 	<view class="cu-form-group margin-top">
 		<view class="title">姓名</view>

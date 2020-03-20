@@ -115,7 +115,7 @@ App({
 	var that = this
 	return  new Promise(function (resolve,reject){
 		wx.request({
-		   url: 'http://www.tp5.com/index.php/api/' + data['url'], //仅为示例，并非真实的接口地址
+		   url: 'http://123.56.71.60:613/index.php/api/' + data['url'], //仅为示例，并非真实的接口地址
 		   data: data['data'],
 		   method: 'POST',
 		   header: {
