@@ -34,7 +34,7 @@
 </view>
 
 <view class="padding-left padding-right padding-bottom bg-white">
-	{{doctor.doctor_introduciton == null?'暂无':doctor.doctor_introduciton}}
+	{{doctor.doctor_introduce == null?'暂无':doctor.doctor_introduce}}
 </view>
 
 <view class="padding padding text-center text-grey text-sm">大象医疗</view>
