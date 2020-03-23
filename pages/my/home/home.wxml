@@ -51,12 +51,12 @@
         <text class="text-grey">Bug反馈</text>
       </button>
     </view>
-    <view class="cu-item arrow">
+    <!-- <view class="cu-item arrow">
       <navigator class="content" url="/pages/my/about/about" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">关于大象健康</text>
       </navigator>
-    </view>
+    </view> -->
   </view>
   
   <view class="cu-tabbar-height"></view>

@@ -65,7 +65,7 @@ Component({
 	  },
 	  toTestList(){
 	  		  wx.navigateTo({
-	  			  url : '/pages/my/testList/testList'
+	  			  url : '/pages/my/testResultList/testResultList'
 	  		  })
 	  },
 	  toJump(e){
@@ -79,7 +79,7 @@ Component({
 		}
 		if(title == '体检报告查询'){
 			wx.navigateTo({
-						  url : '/pages/my/testList/testList'
+				url : '/pages/my/testResultList/testResultList'
 			})
 		}
 		if(title == '缴费记录'){

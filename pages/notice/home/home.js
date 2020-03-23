@@ -41,7 +41,8 @@ Component({
 	cRequest(data){
 		return new Promise(function (resolve,reject){
 			wx.request({
-			   url: 'http://123.56.71.60:613/index.php/api/' + data['url'], //仅为示例，并非真实的接口地址
+				url: 'http://www.tp5.com/index.php/api/' + data['url'], //开发环境
+			//    url: 'http://123.56.71.60:613/index.php/api/' + data['url'], //仅为示例，并非真实的接口地址
 			   data: data['data'],
 			   method: 'POST',
 			   header: {
@@ -81,12 +82,14 @@ Component({
 				token : this.gGetStorage('userInfo').token
 			}
 		}).then(function(res){
-			wx.hideLoading()
+			
 			if(res.code == 200){
 				that.setData({
 					noticeList : res.data
 				})
+				wx.hideLoading()
 			}else{
+				wx.hideLoading()
 				wx.showToast({
 					title : res.msg,
 					icon : 'none'

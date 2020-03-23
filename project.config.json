@@ -211,6 +211,13 @@
 					"pathName": "pages/my/testResult/testResult",
 					"query": "test_id=112",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "体检报告列表",
+					"pathName": "pages/my/testResultList/testResultList",
+					"query": "test_id=112",
+					"scene": null
 				}
 			]
 		}

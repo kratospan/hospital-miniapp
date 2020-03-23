@@ -12,7 +12,7 @@
 </view>
 
 <view class="good solid-bottom text-grey text-sm padding bg-white">
-	专业擅长:<text class="margin-left">{{doctor.doctor_good == null?'暂无':doctor.doctor_good}}</text>
+	专业擅长:<text class="margin-left">{{doctor.doctor_good != '' ?doctor.doctor_good:'暂无'}}</text>
 </view>
 
 <view class="padding bg-white margin-tb">

@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">体检报告列表</view>
+</cu-custom>
+
+<view class="choose padding bg-white" wx:if="{{patient_list != ''}}">
+	<text class="text-lg" style="font-weight: 600;">{{has_choose.patient_name}}</text>
+	<text class="cu-tag text-green" bindtap="showModal" value="{{index}}" data-target="bottomModal">切换就诊人</text>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+	<view class="cu-dialog text-lg">
+	    <view class="bg-white padding text-xl bar">
+			<view class="title2" style="">请选择就诊人</view>
+			<view class="cancel2" bindtap="hideModal">X</view>
+	    </view>
+	    <view class="bg-white padding solid-top" wx:for="{{patient_list}}" bindtap="choosePatient" data-target="{{item}}">
+			{{item.patient_name}}
+	    </view>
+	</view>
+</view>
+
+<view class="cu-list">
+	<view class="cu-item margin-top bg-white" wx:for="{{testlist}}" bindtap="toJump" data-target="{{item}}">
+		<view class="time solid-bottom padding" style="font-weight: 600;">
+			预约时间: <text style="margin-left:10rpx;">{{item.test_date}} </text>
+			<!-- <text style="margin-left:10rpx;">({{item.time.test_week}})</text> -->
+			<text style="margin-left:10rpx;">{{item.test_status}}</text>
+		</view>
+		<view class="solid-bottom padding">
+			<view class="text-lg" style="font-wight:600;">佛山第一医院体检中心</view>
+			<view style="margin-top:15rpx;">预约人:{{item.patient_name}}</view>
+			<view class="text-right text-lg" style="font-wight；">￥{{item.meal_cost}}</view>
+		</view>
+	<!-- 	<view class="padding text-lg text-right">
+			<text style="border: 1px solid grey; padding:15rpx;">取消预约</text>
+		</view> -->
+		
+		<!-- <view class="line"></view> -->
+	</view>
+</view>
+
+<view class="text-grey padding-bottom padding-top" style="text-align: center;" wx:if="{{testlist == '' || stop == true}}">
+	已无更多体检报告
+</view>

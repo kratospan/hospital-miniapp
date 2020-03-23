@@ -25,7 +25,8 @@
     "pages/my/about/about",
     "pages/my/testList/testList",
     "pages/my/testMore/testMore",
-    "pages/my/testResult/testResult"
+    "pages/my/testResult/testResult",
+    "pages/my/testResultList/testResultList"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

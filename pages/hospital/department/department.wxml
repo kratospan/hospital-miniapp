@@ -11,4 +11,4 @@
 
 <view class="text-grey padding bg-white">科室地址:{{officeMore.office_name}}</view>
 <view class="text-grey padding bg-white">科室电话:{{officeMore.office_phone == null?'暂无':officeMore.office_phone}}</view>
-<view class="padding text-grey text-lg bg-white">{{officeMore.office_introduction == null?'暂无科室介绍':officeMore.office_introduction}}</view>
+<view class="padding text-grey text-lg bg-white">{{officeMore.office_introduce == null||officeMore.office_introduce == ''?'暂无科室介绍':officeMore.office_introduce}}</view>

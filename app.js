@@ -115,7 +115,7 @@ App({
 	var that = this
 	return  new Promise(function (resolve,reject){
 		wx.request({
-      // url: 'http://123.56.71.60:613/index.php/api/' + data['url'],  生产环境
+      // url: 'http://123.56.71.60:613/index.php/api/' + data['url'],  //生产环境
 		   url: 'http://www.tp5.com/index.php/api/' + data['url'], //开发环境
 		   data: data['data'],
 		   method: 'POST',
