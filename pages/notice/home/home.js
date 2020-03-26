@@ -15,7 +15,8 @@ Component({
     noticeList : [],
 	has_notice : true,
 	user_id : '',
-	page : ''
+	page : 1,
+	stop : false
   },
   methods: {
     toChild(e) {
@@ -82,21 +83,39 @@ Component({
 				token : this.gGetStorage('userInfo').token
 			}
 		}).then(function(res){
-			
+			wx.hideLoading()
 			if(res.code == 200){
+				if(res.num != 0){
+					var array = that.data.noticeList
+					// res.data.forEach(element => {
+					// 	array.push(element)
+					// });
+					for(let i = 0; i < res.num ; i++){
+						array.push(res.data[i])
+					}
+					that.setData({
+						noticeList : array
+					})
+					if(res.num < 8){
+						that.setData({
+							stop : true
+						})
+					}
+				}else{
+					that.setData({
+						stop : true
+					})
+				}
 				that.setData({
-					noticeList : res.data
+					page : that.data.page + 1
 				})
-				wx.hideLoading()
 			}else{
-				wx.hideLoading()
 				wx.showToast({
 					title : res.msg,
 					icon : 'none'
 				})
 			}
 		})
-		// console.log(this.data.noticeList)
 	},
 	
 	initData(){
@@ -108,6 +127,13 @@ Component({
 		this.selectNotice()
 		
 	},
+
+	toBottom(){
+		if(!this.data.stop){
+			this.selectNotice()
+		}
+	}
+	
 	
 	
 

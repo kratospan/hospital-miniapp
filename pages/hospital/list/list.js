@@ -60,7 +60,11 @@ Page({
 				  	})
 				  }
 			  }else{
-				  
+				if(res.num == 0){
+					that.setData({
+						stop : true
+					})
+				}
 			  }
 		  }else{
 			  app.showModal(res.msg)

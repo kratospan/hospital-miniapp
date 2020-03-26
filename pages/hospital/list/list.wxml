@@ -24,6 +24,6 @@
   
   <!-- <view wx:if="{{stop}}" class="text-sm text-grey text-center padding-bottom"> 已经到底了 </view> -->
   
-  <view  class="text-grey padding" style="text-align: center;" wx:if="{{doctor == '' || stop == true}}">
+  <view  class="text-grey margin-bottom" style="text-align: center;" wx:if="{{doctor == '' || stop == true}}">
   		  已无更多信息
   </view>
