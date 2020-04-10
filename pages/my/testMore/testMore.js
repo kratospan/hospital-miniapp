@@ -47,25 +47,34 @@ Page({
   
   //取消体检预约
   cancelTest(){
-  	  wx.showLoading()
-  	  var that = this
-  	  app.gRequest({
-  	  		  url : 'test/cancel_test',
-  	  		  data : {
-				  test_id : that.data.test_id,
-				  user_id : that.data.user_id,
-				  token : app.getToken()
+	  var that = this
+  	  wx.showModal({
+		  title:'取消预约',
+		  content:'确定取消预约？',
+		  success:function(res){
+			  if(res.confirm){
+				  wx.showLoading()
+				  
+				  app.gRequest({
+				  		  url : 'test/cancel_test',
+				  		  data : {
+				  				  test_id : that.data.test_id,
+				  				  user_id : that.data.user_id,
+				  				  token : app.getToken()
+				  			  }
+				  }).then(function(res){
+				  		  wx.hideLoading()
+				  		  if(res.code == 200){
+				  			  app.showModal(res.msg)
+				  			  setTimeout(function () {
+				  			      wx.navigateBack()
+				  			      }, 1500) //延迟时间 这里是1秒
+				  		  }else{
+				  			  app.showModal(res.msg)
+				  		  }
+				  })
 			  }
-  	  }).then(function(res){
-  	  		  wx.hideLoading()
-  	  		  if(res.code == 200){
-  	  			  app.showModal(res.msg)
-  	  			  setTimeout(function () {
-  	  			      wx.navigateBack()
-  	  			      }, 1500) //延迟时间 这里是1秒
-  	  		  }else{
-  	  			  app.showModal(res.msg)
-  	  		  }
-  	  })
+		  }
+	  })
   }
 })

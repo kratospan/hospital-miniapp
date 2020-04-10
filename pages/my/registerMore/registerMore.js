@@ -38,25 +38,33 @@ Page({
   
   //取消挂号预约
   cancelRegister(){
-	  wx.showLoading()
 	  var that = this
-	  app.gRequest({
-	  		  url : 'register/cancel_register',
-	  		  data : {
-				  register_id : that.data.register_id,
-				  user_id : that.data.user_id,
-				  token : app.getToken()
+	  wx.showModal({
+		  title:'取消预约',
+		  content:'确定取消预约？',
+		  success:function(res){
+			  if(res.confirm){
+				  wx.showLoading()
+				  app.gRequest({
+				  		  url : 'register/cancel_register',
+				  		  data : {
+				  				  register_id : that.data.register_id,
+				  				  user_id : that.data.user_id,
+				  				  token : app.getToken()
+				  			  }
+				  }).then(function(res){
+				  		  wx.hideLoading()
+				  		  if(res.code == 200){
+				  			  app.showModal(res.msg)
+				  				  setTimeout(function () {
+				  				      wx.navigateBack()
+				  				  }, 2000) //延迟时间 这里是1秒
+				  		  }else{
+				  			  app.showModal(res.msg)
+				  		  }
+				  })
 			  }
-	  }).then(function(res){
-	  		  wx.hideLoading()
-	  		  if(res.code == 200){
-	  			  app.showModal(res.msg)
-				  setTimeout(function () {
-				      wx.navigateBack()
-				  }, 2000) //延迟时间 这里是1秒
-	  		  }else{
-	  			  app.showModal(res.msg)
-	  		  }
+		  }
 	  })
   }
 })

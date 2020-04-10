@@ -90,7 +90,7 @@ Page({
   	  })
   },
   
-  //在本地获取未来七天的时间
+  //在服务器获取未来七天的时间
   getTime(){
   	  // var now = new Date()
   	  // var year = now.getFullYear();     	//得到年份

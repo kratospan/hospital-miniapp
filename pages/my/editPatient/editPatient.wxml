@@ -33,7 +33,7 @@
 			</view>
 		</view>
 	</view>
-	<view class="cu-form-group">
+	<view class="cu-form-group" wx:if="{{phone != originPhoneNumber}}">
 		<view class="title">验证码</view>
 		<input placeholder="请输入验证码" bindinput="inputCode"></input>
 		<button class="cu-btn bg-green shadow" bindtap="sendCode">{{countDown?num+'秒':'验证码'}}</button>

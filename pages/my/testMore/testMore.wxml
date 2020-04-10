@@ -64,6 +64,6 @@
 <view class="text-center padding margin-top-lg"> </view>
 
 
-<view class="bg-white text-center padding text-green text-lg margin-top" wx:if="{{list.has_result != 1}}" bindtap="cancelTest">
+<view class="bg-white text-center padding text-green text-lg margin-top" wx:if="{{list.has_result != 1&&list.test_status != '预约取消'}}" bindtap="cancelTest">
 	取消预约
 </view>

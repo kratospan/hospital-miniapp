@@ -13,7 +13,9 @@ Page({
 	birth : '',
 	phone : '',
 	num : 60,
-	countDown : false
+	countDown : false,
+	originPhoneNumber : '',
+	phone : ''
   },
   onLoad(options) {
     if(options.patient_id){
@@ -31,7 +33,7 @@ Page({
     // console.log(e);
     this.setData({
       // index: e.detail.value,
-  	  'list[0].patient_relationship' : this.data.relationPicker[e.detail.value]
+  	  relation : this.data.relationPicker[e.detail.value]
     })
   },
   inputPhone(e){
@@ -75,23 +77,28 @@ Page({
 		})
 		return false
 	}
-	if(this.checkCode()){
-		this.submit_add_patient()
-	}
+	// if(this.checkCode()){
+	// 	this.submit_add_patient()
+	// }
 	var that = this
-	app.gRequest({
-		url : 'code/check_code',
-		data : {
-			code_phone : this.data.phone,
-			code_content : this.data.code
-		},	  
-	}).then(function(res){
-		if(res.code == 200){
-			that.submitUpdatePatient()
-		}else{
-			app.showModal(res.msg)
-		}
-	})
+	if(that.data.phone != that.data.originPhoneNumber){
+		app.gRequest({
+			url : 'code/check_code',
+			data : {
+				code_phone : this.data.phone,
+				code_content : this.data.code
+			},	  
+		}).then(function(res){
+			if(res.code == 200){
+				that.submitUpdatePatient()
+			}else{
+				app.showModal(res.msg)
+			}
+		})
+	}
+	if(that.data.phone == that.data.originPhoneNumber){
+		that.submitUpdatePatient()
+	}
   },
   
   //查询就诊人信息
@@ -114,6 +121,8 @@ Page({
 				  sex : res.data.patient_sex,
 				  relation : res.data.patient_relationship,
 				  name : res.data.patient_name,
+				  originPhoneNumber : res.data.patient_phone,
+				  phone : res.data.patient_phone
 			  })
 			  wx.hideLoading()
 		  }else{
@@ -146,6 +155,9 @@ Page({
 		  if(res.code == 200){
 			  wx.hideLoading()
 			  app.showModal(res.msg)
+			  setTimeout(function(){
+				  wx.navigateBack()
+			  },800)
 		  }else{
 			  wx.hideLoading()
 			  app.showModal(res.msg)

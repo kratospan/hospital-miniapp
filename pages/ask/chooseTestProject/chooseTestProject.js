@@ -35,7 +35,7 @@ Page({
 		  wx.hideLoading()
 		  if(res.code == 200){
 			  if(res.num != 0){
-				 res.num = res.num + 1
+				res.num = res.num + 1
 			  	var mealList = that.data.mealList
 			  	for(let i = 0; i < res.num - 1; i++){
 			  			mealList.push(res.data[i])
@@ -50,7 +50,9 @@ Page({
 			  		})
 			  	}
 			  }else{
-			  				  
+			  	that.setData({
+			  		stop : true
+			  	})			  
 			  }
 		  }else{
 			  app.showModal(res.msg)

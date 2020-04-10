@@ -71,7 +71,7 @@ Page({
 	  		doctor_id : that.data.doctor_id,
 			patient_id : that.data.has_choose_patient.patient_id,
 			register_date : that.data.register_date,
-			register_time : that.data.schedul_time2,
+			register_time : that.data.schedul_time2 - 1,
 			user_id : this.data.user_id,
 			token : app.getToken()
 	  	}

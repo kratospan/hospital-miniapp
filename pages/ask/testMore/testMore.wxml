@@ -105,7 +105,7 @@
 
 <view class="pay bg-white text-lg">
 	<view class="left">
-		<view class="num text-grey text-sm">共17个项目</view>
+		<!-- <view class="num text-grey text-sm">共17个项目</view> -->
 		<view class="cost">个人支付:<text class="text-red" style="font-weight: 600; font-size: 20px;">￥{{meal_more.meal_cost}}</text></view>
 	</view>
 	<view class="right bg-green padding text-white" bindtap="confirmTest">立即预约</view>
