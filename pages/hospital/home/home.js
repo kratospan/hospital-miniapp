@@ -5,7 +5,7 @@ Component({
   data: {
     contact: [
       { content: '总机电话: 0757-83833633', icon: 'dianhua', color: 'purple' },
-      { content: '导航栏: 0757-83163155', icon: 'dianhua', color: 'mauve'},
+      { content: '分机电话: 0757-83163155', icon: 'dianhua', color: 'mauve'},
       { content: '广东省佛山市岭南大道北81号', icon: 'location', color: 'pink' },
     ],
 	more : [

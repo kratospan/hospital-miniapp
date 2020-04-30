@@ -8,7 +8,7 @@
 			  <image class="cu-avatar xl round margin-left " src="../../../images/BasicsBg.jpg"></image>
 		  </view>
 		  <view class="left">
-			  <view style="font-size: 23px; font-weight: 750;">佛山市第一人民医院</view>
+			  <view style="font-size: 23px; font-weight: 750;">第一人民医院</view>
 			  <view class="cu-tag bg-cyan light" style="border-radius: 15rpx; width: 200rpx;">三级甲等医院</view>
 		  </view>
 	  </view>
